@@ -10,6 +10,8 @@
     z-index: 9999;
     transition: background-color 0.5s;
 
+    display: block  !important;//ヘッダー表示
+
     @include mq("md") {
         height: rem(90);
     }
