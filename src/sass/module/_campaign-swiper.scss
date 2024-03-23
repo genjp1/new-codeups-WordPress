@@ -1,0 +1,91 @@
+@use "global" as *;
+
+.campaign-swiper {
+    margin-top: rem(27);
+
+    @include mq("md") {
+        margin-top: rem(38);
+        position: relative;
+    }
+}
+
+.campaign-swiper__card {
+    
+}
+
+.campaign-swiper__button-wrap {
+    margin-top: inherit;
+    display: flex;
+    // justify-content: left;
+    // justify-content: right;
+
+    @include mq("md") {
+        margin-top: inherit;
+        position: absolute;
+        // width: 100%;
+        height: rem(104);
+        right: 1vw;
+        top: rem(-11);
+        gap: rem(61);
+    }
+}
+
+.campaign-swiper__button-wrap .swiper-button-prev,
+.campaign-swiper__button-wrap .swiper-button-next {
+    position: relative;
+    width: rem(100);
+    height: rem(104);
+    background-color: #fff9ee;
+    border-radius: 50%;
+}
+
+.campaign-swiper__button-wrap .swiper-button-next {
+    // margin-left: rem(60);
+}
+
+.campaign-swiper__button-wrap .swiper-button-prev::before,
+.campaign-swiper__button-wrap .swiper-button-next::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: rem(13);
+    height: rem(13);
+    border-top: rem(3) solid #333;
+    border-right: rem(3) solid #333;
+}
+
+.campaign-swiper__button-wrap .swiper-button-prev::before {
+    transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.campaign-swiper__button-wrap .swiper-button-next::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+
+
+// ボタンのホバー
+.campaign-swiper__button-wrap .swiper-button-prev, 
+.campaign-swiper__button-wrap .swiper-button-next {
+  opacity: 1;
+  transition: .5s;
+}
+
+.campaign-swiper__button-wrap .swiper-button-prev:hover, 
+.campaign-swiper__button-wrap .swiper-button-next:hover {
+  opacity: .5;
+}
+
+
+// 既定のやじるしを消す
+.campaign-swiper__button-wrap .swiper-button-prev::before, .campaign-swiper__button-wrap .swiper-button-next::before {
+    display: none;
+}
+
+// 円のデザイン調整
+.campaign-swiper__button-wrap .swiper-button-prev, .campaign-swiper__button-wrap .swiper-button-next {
+    background-color: $white;
+    position:initial;
+    margin: 0;
+}

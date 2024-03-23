@@ -1,0 +1,117 @@
+@use "global" as *;
+
+.voice-card{
+    box-shadow: rem(2) rem(2) rem(10) rem(0) rgba(0, 0, 0, 0.25);
+    background-color: $white;
+    padding: rem(15) rem(16) rem(24) rem(16);
+
+    @include mq("md") {
+        padding: rem(24) rem(24) rem(24) rem(24);
+    }
+  }
+  
+
+  .voice-card__content{
+    display: flex;
+
+    @include mq("md") {
+      align-items: flex-end;
+    }
+  }
+
+  .voice-card__info {
+    // width: 92%;
+    width: 47%;
+    @include mq("md") {
+      width: 61%;
+    }
+  }
+
+  .voice-card__meta {
+
+    @include mq("md") {
+      display: flex;
+      justify-content: space-between;
+      margin-right: rem(3);
+    }
+
+  }
+
+  .voice-card__age {
+    color: $green1;
+    font-size: rem(12);
+    font-style: normal;
+    font-weight: $regular;
+    line-height: 1.5; /* 150% */
+
+    @include mq("md") {
+        display: flex;
+        align-items: flex-end;
+    }
+  }
+
+  .voice-card__tag {
+    display: inline-flex;
+    padding: rem(3) rem(12);
+    align-items: flex-start;
+    gap: rem(8);
+    border: 1px solid $green2;
+    color: $green2;
+    font-size: rem(12);
+    font-style: normal;
+    font-weight: $regular;
+    line-height: 1.83333; /* 183.333% */
+
+    @include mq(md){
+        padding: 6px 16px 6px 16px;//6px 16px 6px 16px
+    }
+}
+
+  .voice-card__title{
+    margin-top: rem(3);
+    color: $green1;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: $medium;
+    line-height: normal;//ブラウザのデフォルトの行間隔を使用
+
+    @include mq("md") {
+      margin-top: rem(10);
+      font-size: rem(24);
+    }
+  }
+
+  hr.voice-card__line {
+    border-color: $green2;
+    margin: rem(0) rem(0) rem(0) rem(0);
+}
+
+.voice-card__img{
+  margin-top: rem(5);
+  width: 50%;
+  margin-left: rem(13);
+
+  aspect-ratio: 180 / 140;// 横320 / 縦200
+
+  @include mq("md") {
+    width: 39%;
+    margin-top: 0;
+  }
+}
+
+.voice-card__img img {
+  aspect-ratio: 180 / 140;
+  object-fit: cover;
+}
+
+  .voice-card__text{
+    margin-top: rem(16);
+    color: $green1;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: $regular;
+    line-height: 1.5; /* 150% */
+    @include mq("md") {
+      margin-top: rem(40);
+    }
+  }

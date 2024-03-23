@@ -1,0 +1,139 @@
+@use "global" as *;
+
+.card{
+    box-shadow:  rem(2) rem(2) rem(10)  rem(0) rgba(0, 0, 0, 0.25);
+    background-color: $white;
+    cursor: pointer;
+    width: 100%;
+
+    @include mq("md") {
+
+    }
+  }
+  
+  .card__img{
+    aspect-ratio: 301 / 201;
+    object-fit: cover;
+    padding: rem(16) rem(16) rem(5) rem(16);
+
+    @include mq("md") {
+        padding: rem(16) rem(16) rem(6) rem(16);
+        transition: .5s ;
+    }
+  }
+  
+  .card__body{
+    padding: rem(12) rem(16)  rem(24);
+    
+    @include mq("md") {
+        padding: rem(9) rem(17) rem(24);
+    }
+  }
+
+  .card__body.card__body--page-blog {
+    padding: rem(12) rem(16)  rem(24);
+    
+    @include mq("md") {
+        padding: rem(11) rem(17) rem(24);
+    }
+  }
+
+  
+  .card__date{
+    color: $green1;
+    font-family: $english-family;
+    font-size: rem(12);
+    font-style: normal;
+    font-weight: $regular;
+    line-height: 1.5; /* 150% */
+  }
+
+  hr.card__line {
+    margin:  rem(2) 0;
+    background-color: $green2;
+    height: rem(2);
+    border: none;
+
+    @include mq("md") {
+      margin:  rem(3) 0;
+    }
+}
+
+hr.card__line.card__line--page-blog {
+  margin:  rem(3) 0;
+
+}
+
+  .card__title{
+    color: $green1;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: $medium;
+    line-height: 1.5; /* 150% */
+  }
+  
+  .card__text{
+    margin-top: rem(16);
+    color: $green1;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: $regular;
+    line-height: 1.5; /* 150% */
+  
+  }
+
+  .card__img,
+  .card__title,
+  .card__line,
+  .card__text,
+  .card__date {
+    @include mq("md") {
+      transition: .5s ;
+    }
+
+  }
+
+  .card:hover .card__img,
+  .card:hover .card__title,
+  .card:hover .card__line,
+  .card:hover .card__text,
+  .card:hover .card__date {
+    opacity: .5;
+  }
+
+.card__title{
+    color: $green1;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: $medium;
+    line-height: 1.5; /* 150% */
+  }
+  
+  .card__text{
+    margin-top: rem(16);
+    color: $green1;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: $regular;
+    line-height: 1.5; /* 150% */
+  
+  }
+
+  .card__img,
+  .card__title,
+  .card__line,
+  .card__text,
+  .card__date {
+    @include mq("md") {
+      transition: .5s ;
+    }
+
+  }
+
+  .card:hover .card__img,
+  .card:hover .card__title,
+  .card:hover .card__line,
+  .card:hover .card__text,
+  .card:hover .card__date {
+    opacity: .5;
+  }

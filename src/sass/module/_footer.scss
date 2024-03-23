@@ -1,0 +1,46 @@
+@use "global" as *;
+
+
+.footer {
+
+}
+
+.footer__inner {
+    //p-header（親要素）の高さを継承する
+
+    @include mq(md) {
+        height: inherit;
+        align-items: center;
+        justify-content: space-between;
+    	padding-left: rem(180);
+        padding-right: rem(180);
+    }
+}
+
+.footer__icon {
+    
+    @include mq("md") {
+        display: flex;
+    }
+
+}
+
+.footer_logo {
+   
+}
+
+.footer__copyright {
+    text-align: center;
+    margin-top: rem(24);
+    color: $white;
+    font-family: $english-family;
+    font-size: rem(12);
+    font-style: normal;
+    font-weight: $regular;
+    line-height: 1.5; /* 150% */
+
+    @include mq(md) {
+        font-size: rem(14);
+        margin-top: rem(58);
+    }
+}

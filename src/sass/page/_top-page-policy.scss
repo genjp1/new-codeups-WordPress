@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.top-page-policy {
+    margin-top: rem(44);
+
+    @include mq(md) {
+        margin-top: rem(142);
+    }
+}

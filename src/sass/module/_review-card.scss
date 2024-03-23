@@ -1,0 +1,62 @@
+@use "global" as *;
+
+.review-card {
+    // box-shadow: rem(2) rem(2) rem(10) rem(0) rgba(0, 0, 0, 0.25);
+    // background-color: $white;
+    // padding: rem(10) rem(16) rem(16) rem(15);
+  }
+  
+  .review-card:hover .review-card__img img {
+    transform: scale(1.2);
+  }
+
+  .review-card__content{
+      
+  }
+
+  .review-card__img{
+    width: 100%;
+    aspect-ratio: 294 /218;// 横320 / 縦200
+    margin-top: rem(0);
+    overflow: hidden;
+
+    @include mq("md") {
+      margin-top: rem(2);
+
+    }
+  }
+  
+  .review-card__img img {
+    aspect-ratio: 294 /218;
+    object-fit: cover;
+    transition: .6s;
+  }
+
+
+  .review-card__info {
+    width: 100%;
+    margin-top: rem(15);
+  }
+
+  .review-card__age {
+    color: $green1;
+    font-size: rem(12);
+    font-style: normal;
+    font-weight: $regular;
+    line-height: 1.5; /* 150% */
+  }
+  
+
+  .review-card__title{
+    margin-top: rem(8);
+    color: $green1;
+    font-size: rem(24);
+    font-style: normal;
+    font-weight: $medium;
+    line-height: normal;//ブラウザのデフォルトの行間隔を使用
+  }
+
+
+
+
+

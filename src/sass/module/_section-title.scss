@@ -1,0 +1,93 @@
+@use "global" as *;
+
+.title {
+
+}
+
+.title__main {
+    color: $green1;
+    text-align: center;
+    font-family: $english-family;
+    font-size: rem(32);
+    font-style: normal;
+    font-weight: $regular;
+    line-height: 1.25; /* 125% */
+    // text-transform:capitalize;
+
+    @include mq(md) {
+        font-size: rem(40);
+        line-height: 1; /* 100% */
+    }
+}
+
+.title__main.title__main--white {
+    @include mq("md") {
+        color: $white;
+    }
+}
+
+.title__main.title__main--big {
+    font-size: rem(80);
+    line-height: 1; /* 100% */
+    margin-bottom: rem(-9);
+    margin-left: rem(-10);
+    @include mq("lg") {
+        margin-bottom: rem(0);
+        line-height: 1; /* 100% */
+        margin-left: rem(0);
+    }
+}
+
+.title__main::first-letter {
+    color: $green2;
+  }
+
+  .title__main.title__main--white::first-letter {
+    @include mq("md") {
+        color: $white;
+    }
+  }
+
+  .title__main.non-text-transform {
+    text-transform: none;
+  }
+
+.title__sub {
+    margin-top: rem(4);
+    color: $green2;
+    text-align: center;
+    font-family: "Noto Sans JP";
+    font-size: rem(12);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5; /* 150% */
+    @include mq("md") {
+        margin-top: rem(8);
+    }
+}
+
+.title__sub.title__sub--contact {
+
+    @include mq("md") {
+        margin-top: rem(-7);
+    }
+}
+
+.title__sub.title__sub--white {
+    @include mq("md") {
+        color: $white;
+    }
+    
+}
+
+.title__subText {
+    margin-top: rem(8);
+    color: $green2;
+    text-align: center;
+    font-family: "Noto Sans JP";
+    font-size: rem(14);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5; /* 150% */
+}
+

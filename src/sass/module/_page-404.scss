@@ -1,0 +1,100 @@
+@use "global" as *;
+
+.page-404 {
+    background-color: $green2;
+}
+
+.page-404__inner {
+    position: relative;
+    width: 100%;
+
+    @include mq(md){
+
+    }
+  }
+
+.page-404__inner::before {
+    background-image: url(../images/common/icon-404-sp.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    content: "";
+    position: absolute;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    width: rem(328.843);
+    height: rem(293.594);
+    left: 50%;
+
+    @include mq("md") {
+        background-image: url(../images/common/icon-404.svg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        content: "";
+        position: absolute;
+        top: 54%;
+        transform: translateY(-50%);
+        width: rem(698);
+        height: rem(698);
+        left: calc(50% - min(48vw, rem(541)));
+    }
+}
+
+.page-404__title {
+    color: $white;
+    font-family: $mv-english-family;
+    font-size: rem(80);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;//ブラウザのデフォルトの行間隔を使用
+    letter-spacing: rem(40);
+    text-align: center;
+    text-indent: 0.5em;
+    padding-top: rem(22);
+
+    @include mq("md") {
+        font-size: rem(160);
+        letter-spacing: rem(80);
+        margin-top: rem(41);
+    }
+}
+
+.page-404__textBlock {
+    margin-top: rem(-4);
+
+    color: $white;
+    text-align: center;
+    font-family: $mv-english-family;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: $regular;
+    line-height: 1.5; /* 150% */
+
+    @include mq("md") {
+        margin-top: rem(23);
+    }
+
+}
+
+.page-404__text {
+
+}
+
+.page-404__textCenter {
+
+}
+
+.page-404__textBttom {
+
+}
+
+.page-404__button {
+    margin-top: rem(40);
+    text-align: center;
+
+    @include mq("md") {
+        margin-top: rem(81);
+    }
+
+}

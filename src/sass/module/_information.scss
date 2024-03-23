@@ -1,0 +1,91 @@
+@use "global" as *;
+
+.information {
+    background-color: $green3;
+}
+
+.information__inner {
+
+}
+
+.information__title {
+
+}
+
+
+.information__content {
+    margin-top: rem(28);
+
+    @include mq("md") {
+        display: flex;
+        margin-top: rem(40);
+    }
+}
+
+.information__img {
+    
+    @include mq("md") {
+        width: 50%;
+    }
+}
+
+.information__img-img {
+    max-width: rem(540);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    aspect-ratio: 540 / 356;
+    object-fit: cover;
+}
+
+
+.information__course {
+    margin-top: rem(25);
+
+    @include mq("md") {
+        width: 46%;
+        margin-left: rem(47);
+        margin-top: rem(61);
+    }
+}
+
+.information__course-title {
+    color: $green1;
+    font-size: rem(20);
+    font-style: normal;
+    font-weight: $bold;
+    line-height: 1.2; /* 120% */
+
+    @include mq("md") {
+        font-size: rem(24);
+    }
+}
+
+hr.information__line {
+    border-color: $green2;
+    margin: rem(3) 0;
+
+    @include mq("md") {
+        margin: rem(3) 0;
+    }
+}
+
+.information__course-text {
+    margin-top: rem(6);
+
+    color: $green1;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: $regular;
+    line-height: 1.5; /* 150% */
+
+    @include mq("md") {
+        max-width: rem(492);
+        width: 100%;
+    }
+}
+
+.information__btn {
+    margin-top: rem(41);
+    text-align: center;
+}

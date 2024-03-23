@@ -1,0 +1,141 @@
+@use "global" as *;
+
+.btn {
+  background: $green2;
+  border:  1px solid $green2;
+  // overflow: hidden;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  max-width: rem(300);
+  padding: rem(14) rem(87) rem(14) rem(37);
+  text-align: center;
+
+  color: $white;
+  font-family: $english-family;
+  font-size: rem(14);
+  font-style: normal;
+  font-weight: $regular;
+  line-height: 1.57143; /* 157.143% */
+  cursor:pointer;
+  margin-bottom: 4px;
+}
+
+.btn.btn--white {
+  background: $white;
+  border:  1px solid $white;
+  color: $green2;
+  padding: rem(14) rem(96) rem(14) rem(37);
+}
+
+.btn.btn--contact {
+  padding: rem(14) rem(106) rem(14) rem(47);
+}
+
+.btn::after {
+  background: $white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 100%;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
+  z-index: -1;
+}
+
+.btn.btn--white::after {
+  background: $green2;
+}
+
+.btn:hover{
+  @include mq("md") {
+    color: $green2;
+  }
+}
+
+.btn.btn--white:hover{
+  @include mq("md") {
+    color: $white;
+  }
+}
+
+.btn:hover::after {
+  @include mq("md") {
+    transform: scale(1, 1);
+  }
+}
+
+//矢印表示
+.btn::before {
+  position: absolute;
+  content: "";
+  display: block;
+  top: calc(50% -  rem(2));
+  right: rem(40);
+  width: rem(40);
+  height: rem(5);
+  border: none;
+  border-right:  rem(2) solid #FFF;
+  border-bottom:  rem(1) solid #FFF;
+  transform: skew(53deg);
+  transition: .3s;
+
+  @include mq("md") {
+      right: rem(42);
+      width: rem(41);
+      top: calc(50% -  rem(4));
+  }
+}
+
+.btn.btn--white::before {
+  border-right:  rem(2) solid $green2;
+  border-bottom:  rem(1) solid $green2;
+}
+
+.btn.btn--contact::before {
+  right: rem(58);
+}
+
+.btn:hover::before {
+  @include mq("md") {
+    border-right:  rem(2) solid $green2;
+    border-bottom:  rem(1) solid $green2;
+  }
+}
+
+.btn.btn--white:hover::before {
+  @include mq("md") {
+    border-right:  rem(2) solid $white;
+    border-bottom:  rem(1) solid $white;
+  }
+}
+
+
+.btn span {
+	position: relative; /* 要素に position: relative; を追加 */
+  transition: .3s;
+}
+
+
+.btn span::after {
+	content: "";
+	border: rem(1) solid $green2;
+	position: absolute;
+	top: rem(-12);
+	right: rem(-118);
+	left: rem(-35);
+	width: rem(202);
+	height: rem(54);
+	z-index: -1;
+}
+
+.btn.btn--white span::after{
+  border: rem(1) solid $white;
+}
+
+.btn.btn--contact span::after {
+  left: rem(-90);
+}

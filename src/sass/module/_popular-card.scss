@@ -1,0 +1,57 @@
+@use "global" as *;
+
+.popular-card{
+    box-shadow: rem(2) rem(2) rem(10) rem(0) rgba(0, 0, 0, 0.25);
+    background-color: $white;
+    padding: rem(10) rem(16) rem(16) rem(15);
+  }
+
+  .popular-card:hover .popular-card__img img {
+    transform: scale(1.2);
+  }
+
+  .popular-card__content{
+      display: flex;
+  }
+
+  .popular-card__img{
+    width: 47%;
+    aspect-ratio: 121 /90;// 横320 / 縦200
+    margin-top: rem(6);
+    overflow: hidden;
+  }
+  
+  .popular-card__img img {
+    aspect-ratio: 121 / 90;
+    object-fit: cover;
+    transition: .6s;
+  }
+
+
+  .popular-card__info {
+    width: 48%;
+    margin-left: rem(14);
+  }
+
+  .popular-card__date{
+    color: $green1;
+    font-family: $english-family;
+    font-size: rem(12);
+    font-style: normal;
+    font-weight: $regular;
+    line-height: 1.5; /* 150% */
+  }
+  
+
+  .popular-card__title{
+    margin-top: rem(3);
+    color: $green1;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;//ブラウザのデフォルトの行間隔を使用
+  }
+
+
+
+

@@ -1,0 +1,103 @@
+@use "global" as *;
+
+.top-footer {
+    background-color: $green2;
+    margin-top: rem(99);
+    padding-top: rem(48);
+    padding-bottom: rem(56);
+
+    @include mq(md) {
+        margin-top: rem(127);
+        padding-top: rem(80);
+        padding-bottom: rem(80);
+    }
+
+}
+
+.top-footer.top-page-voice-footer {
+    margin-top: rem(99);
+
+    @include mq("md") {
+        margin-top: rem(160);
+    }
+
+}
+
+.top-footer.top-page-campaign-footer {
+    margin-top: rem(100);
+
+    @include mq("md") {
+        margin-top: rem(160);
+    }
+
+}
+
+.top-footer.top-page-information-footer {
+    margin-top: rem(100);
+
+    @include mq("md") {
+        margin-top: rem(161);
+    }
+
+}
+
+.top-footer.top-page-about-footer {
+    margin-top: rem(99);
+
+    @include mq("md") {
+        margin-top: rem(160);
+    }
+
+}
+
+.top-footer.top-page-blogDetail-footer {
+    margin-top: rem(99);
+
+    @include mq("md") {
+        margin-top: rem(160);
+    }
+
+}
+.top-footer.top-page-terms-footer {
+    margin-top: rem(99);
+
+    @include mq("md") {
+        margin-top: rem(161);
+    }
+
+}
+
+.top-footer.top-page-contact-footer {
+    margin-top: rem(145);
+
+    @include mq("md") {
+        margin-top: rem(160);
+    }
+
+}
+.top-footer.top-page-contact-complete-footer {
+    margin-top: rem(144);
+
+    @include mq("md") {
+        margin-top: rem(120);
+    }
+
+}
+.top-footer.top-page-404-footer {
+    padding-top: rem(69);
+    margin-top: 0;
+
+    @include mq("md") {
+        padding-top: rem(134);
+    }
+
+}
+
+.top-footer.top-page-sitemap-footer {
+    margin-top: rem(99);
+
+    @include mq("md") {
+        margin-top: rem(162);
+    }
+
+}

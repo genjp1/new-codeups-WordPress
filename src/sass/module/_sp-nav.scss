@@ -1,0 +1,104 @@
+@use "global" as *;
+
+.sp-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $green2;
+    width: 100%;
+    // 100vhで全画面表示
+    height: 100vh;
+    z-index: 8888;
+    overflow: scroll;//スクロールバーを表示（全体表示出来ていない状態で）
+
+    // 横からスライドインバージョン(-100%：左から右、100%：右から左)
+    transform: translateX(100%);
+    //ドロワーオープン時の横スライドアニメーション及び、縦幅を伸ばした際伸ばした際のアニメーション効果無し（transition: ease .3s だと余計な箇所にアニメーションがつく）
+    transition: transform 0.3s ease-in-out;
+
+    @include mq(md) {
+        display: none;
+    }
+}
+
+.sp-nav__inner {
+
+}
+    // 横からスライドインバージョン
+.sp-nav.is-open {
+    transform: translateX(0%);
+}
+
+.sp-nav__items {
+    padding-top: rem(66);
+    justify-content: space-around;
+}
+
+.sp-nav__scroll-container {
+    overflow: scroll;
+    height: calc(100vh - rem(80));
+    display: flex;
+    padding: 0  rem(37);
+}
+
+.sp-nav__items-column {
+    list-style-type: none;
+    width: 50%;
+  }
+
+  .sp-nav__items-column:last-child {
+    padding-left: rem(22);
+  }
+  
+  .sp-nav__item {
+
+  }
+
+.sp-nav__item a {
+    //クリック領域を大きくとる（横に広げる）→   display: block;か　inline-block;にする
+    display: inline-block;
+    width: 100%;
+    padding-top: rem(38);
+    text-align: left;
+
+    color: $white;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.125; /* 112.5% */
+
+    position: relative;
+}
+
+.sp-nav__item span a::before{
+    position: absolute;
+    content: "";
+    top: rem(47);
+    left: rem(-22);
+    width: rem(18);
+    height: rem(18);
+    transform: translateY(-50%);
+    background: url(../images/common/icon-hitode.svg) no-repeat center center/contain;
+
+}
+
+.sp-nav__item .sp-nav__item-child a {
+    padding-top: rem(0);
+    font-weight: $regular;
+}
+
+
+.sp-nav__item-child {
+    padding-top: rem(23);
+    color: $white;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: $regular;
+    line-height: 1.125; /* 112.5% */
+}
+
+// //ドロワーオープン時のbodyのスクロールを禁止
+// body {
+//     overflow:hidden;
+// }

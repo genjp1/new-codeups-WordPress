@@ -1,0 +1,31 @@
+@use "global" as *;
+
+.logo {
+    width: rem(109);
+    margin-top: rem(7);
+    position: relative;
+    z-index: 9999;
+    display: flex;
+    transition: all .5s;
+
+    @include mq(md) {
+        width: rem(141);
+        margin-top: rem(8);
+    }
+}
+
+.logo.logo--footer {
+    width: rem(120);
+    position: relative;
+    margin: 0;
+    z-index: 1;
+
+    @include mq(md) {
+        width: rem(200);
+
+    }
+}
+
+.logo:hover {
+    opacity: .5;
+}

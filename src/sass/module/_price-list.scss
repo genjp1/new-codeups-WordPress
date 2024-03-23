@@ -1,0 +1,187 @@
+@use "global" as *;
+
+.price-list {
+    width: 100%;
+    max-width: rem(702);
+    line-height: 1;
+    border-collapse: collapse;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.price-list__head {
+    max-width: rem(702);
+    margin-right: auto;
+    margin-left: auto;
+
+    @include mq("md") {
+        max-width: inherit;
+    }
+  }
+
+.price-list__titleSp {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    border: 1px solid $green2;
+    padding: rem(7) rem(16) rem(6) rem(47);
+
+    color: $white;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: $bold;
+    line-height: 1.5; /* 150% */
+    background: $green2;
+
+    @include mq("md") {
+        text-align: center;
+        width: 28.849%;
+        border: 1px solid $green2;
+
+        color: $white;
+        font-size: rem(16);
+        font-style: normal;
+        font-weight: $bold;
+        line-height: 1.5; /* 150% */
+        background: $green2;
+    }
+}
+
+.price-list__titlePc {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    border: 1px solid $green2;
+    padding: rem(7) rem(16) rem(6) rem(47);
+
+    color: $white;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: $bold;
+    line-height: 1.5; /* 150% */
+    background: $green2;
+
+    @include mq("md") {
+        text-align: center;
+        width: 28.849%;
+        border: 1px solid $green2;
+        padding: rem(7) rem(16) rem(79) rem(13);
+
+        color: $white;
+        font-size: rem(16);
+        font-style: normal;
+        font-weight: $bold;
+        line-height: 1.5; /* 150% */
+        background: $green2;
+    }
+}
+
+
+.price-list__titleSp::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: calc(50% - min(45vw, rem(61)));
+    transform: translateX(-50%);
+    width: rem(24);
+    height: rem(24);
+    background-image: url(../images/common/icon-price.svg);
+}
+
+.price-list__titleSp.price-list__titleSp--medium::before {
+    left: calc(50% - min(45vw, rem(69)));
+}
+
+.price-list__titleSp.price-list__titleSp--long::before {
+    left: calc(50% - min(45vw, rem(84)));
+}
+
+.price-list__titlePc::before {
+    content: '';
+    position: absolute;
+    top: 41%;
+    left: 50.4%;//25.2%
+    transform: translateX(-50%);
+    width: rem(64);
+    height: rem(64);
+    background-image: url(../images/common/icon-price.svg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.price-list__titlePc.price-list__titlePc--4row::before {
+    left: 50.7%;
+    top: 44%;
+}
+
+
+.price-list__data {
+    text-align: center;
+    padding: rem(6) rem(8) rem(6) rem(8);
+    width: 58%;
+    border: 1px solid $green2;
+
+    color: $green1;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: $regular;
+    line-height: 1.5; /* 150% */
+    
+    @include mq(md){
+        text-align: left;
+        padding: rem(17) rem(12) rem(17) rem(12);
+        width: 48%;
+        border: 1px solid $green2;
+    
+        color: $green1;
+        font-size: rem(16);
+        font-style: normal;
+        font-weight: $regular;
+        line-height: 1.5; /* 150% */
+
+        
+    }
+}
+
+.price-list__cost {
+    text-align: right;
+    padding: rem(15) rem(16) rem(15) rem(16);
+    width: 20%;
+    border: 1px solid $green2;
+
+    color: $green1;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: $regular;
+    line-height: 1.5; /* 150% */
+
+    @include mq(md){
+        text-align: right;
+        padding: rem(17) rem(16) rem(17) rem(16);
+        width: 23.076%;
+        border: 1px solid $green2;
+    
+        color: $green1;
+        font-size: rem(16);
+        font-style: normal;
+        font-weight: $regular;
+        line-height: 1.5; /* 150% */
+        
+    }
+}
+
+
+
+// .price-list__titleSp, .price-list__titlePc {
+//     position: relative; // 親要素に相対位置を設定
+// }
+
+// // 疑似要素の位置を調整
+// .price-list__titleSp::before, .price-list__titlePc::before {
+//     position: absolute;
+//     // 位置指定を親要素に対して固定にする例
+//     left: 50%; // 左から50%の位置に
+//     transform: translateX(-50%); // 自身の幅の半分だけ左にずらす
+//     // 上部の位置も適切に調整
+// }

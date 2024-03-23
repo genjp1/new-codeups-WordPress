@@ -1,0 +1,68 @@
+@use "global" as *;
+
+.pagetop {
+    height: rem(48);
+    width: rem(48);
+    position: fixed;
+    right: rem(20);
+    bottom: rem(40);
+    background: #fff;
+    border: solid  1px $green2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    border-radius: 50%;
+
+    @include mq(md) {
+        height: rem(80);
+        width: rem(80);
+        right: rem(20);
+        bottom: rem(31);
+    }
+}
+
+.pagetop__arrow {
+    content: "";
+    display: block;
+    position: absolute;
+    height: rem(18); /* 矢印の高さ、必要に応じて調整 */
+    left: 31%;
+    top: calc(50% -  rem(6)); /* ボタンのサイズに基づいて調整 */
+    width: rem(11); /* 矢印の幅 */
+    transform: rotate(127deg) skewX(-53deg); /* 回転してから斜めにする */
+    background-color: transparent;
+    border-left:  rem(2) solid $green2; /* 矢印の形を作成 */
+    border-bottom:  rem(2) solid $green2; /* 矢印の形を調整 */
+    z-index: 10;
+
+    @include mq("md") {
+        height: rem(25); /* 矢印の高さ、必要に応じて調整 */
+        left: 41%;
+        right: rem(42);
+        top: calc(50% -  rem(9));
+        width: rem(12);
+    }
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+    .pagetop:hover, .pagetop:hover .pagetop__arrow {
+        background-color: $green2;
+        border-color: #fff;
+        transition: all 1.0s ease 0s;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .pagetop:hover, .pagetop:hover {
+        border:  2px solid $green2;
+        transition: all 0.3s ease 0s;
+    }
+}
+
+
+ // フッター手前でストップ
+body {
+    position: relative;
+  }
