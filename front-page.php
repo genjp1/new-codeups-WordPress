@@ -1,5 +1,19 @@
 <?php get_header(); ?>
 
+<?php
+$home = esc_url( home_url( '/' ) );
+$campaign = esc_url( home_url( '/campaign/' ) );
+$about = esc_url( home_url( '/about/' ) );
+$information = esc_url( home_url( '/information/' ) );
+$blog = esc_url( home_url( '/blog/' ) );
+$voice = esc_url( home_url( '/voice/' ) );
+$price = esc_url( home_url( '/price/' ) );
+$faq = esc_url( home_url( '/faq/' ) );
+$policy = esc_url( home_url( '/policy/' ) );
+$terms = esc_url( home_url( '/terms/' ) );
+$contact = esc_url( home_url( '/contact/' ) );
+?>
+
 
   <!-- ローディングアニメーション -->
   <!-- <div class="loading js-loading">
@@ -176,7 +190,7 @@
           <div class="swiper-pagination"></div>
         </div>
         <div class="campaign__btn">
-          <a href="page-campaign.html" class="btn"><span>View more</span></a>
+          <a href="<?php echo $campaign; ?>" class="btn"><span>View more</span></a>
         </div>
       </div>
     </div>
@@ -205,7 +219,7 @@
             ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
           </p>
           <div class="about__button">
-            <a href="page-about.html" class="btn"><span>View more</span></a>
+            <a href="<?php echo $about; ?>" class="btn"><span>View more</span></a>
           </div>
         </div>
       </div>
@@ -229,7 +243,7 @@
           <p class="information__course-text">当店はダイビングライセンス（Cカード）世界最大の教育機関PADIの「正規店」として店舗登録されています。<br>
             正規登録店として、安心安全に初めての方でも安心安全にライセンス取得をサポート致します。</p>
           <div class="information__btn">
-            <a href="page-information.html" class="btn"><span>View more</span></a>
+            <a href="<?php echo $information; ?>" class="btn"><span>View more</span></a>
           </div>
         </div>
       </div>
@@ -276,7 +290,7 @@
         </a>
       </div>
       <div class="blog__btn">
-        <a href="page-blog.html" class="btn"><span>View more</span></a>
+        <a href="<?php echo $blog; ?>" class="btn"><span>View more</span></a>
       </div>
     </div>
   </section>
@@ -329,7 +343,7 @@
         </li>
       </ul>
       <div class="voice__btn">
-        <a href="page-voice.html" class="btn"><span>View more</span></a>
+        <a href="<?php echo $voice; ?>" class="btn"><span>View more</span></a>
       </div>
     </div>
   </section>
@@ -424,7 +438,7 @@
         </div>
       </div><!-- price__content -->
       <div class="price__btn">
-        <a href="page-price.html" class="btn"><span>View more</span></a>
+        <a href="<?php echo $price; ?>" class="btn"><span>View more</span></a>
       </div>
     </div> <!-- price__head inner -->
   </section>
@@ -460,7 +474,7 @@
             <p class="title__subText">ご予約・お問い合わせはコチラ</p>
           </div>
           <div class="contact__btn">
-            <a href="page-contact.html" class="btn"><span>Contact us</span></a>
+            <a href="<?php echo $contact; ?>" class="btn"><span>Contact us</span></a>
           </div>
         </div>
       </div>
