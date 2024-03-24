@@ -1,5 +1,30 @@
 <?php get_header(); ?>
 
+
+  <!-- ローディングアニメーション -->
+  <!-- <div class="loading js-loading">
+    <div class="loading__inner">
+      <div class="loading__img-wrap">
+        <div class="loading__img js-loading-img">
+          <picture>
+            <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/loading-left.jpg" class="mv">
+            <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/loading-left-sp.jpg" class="mv" alt="水中のウミガメの様子">
+          </picture>
+        </div>
+        <div class="loading__img js-loading-img">
+          <picture>
+            <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/loading-right.jpg" class="mv">
+            <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/loading-right-sp.jpg" class="mv" alt="水中のウミガメの様子">
+          </picture>
+        </div>
+      </div>
+      <div class="loading__title-wrap js-loading-title">
+        <p class="loading__title">diving</p>
+        <p class="loading__subtitle">into&nbsp;the&nbsp;ocean</p>
+      </div>
+    </div>
+  </div> -->
+
  <!-- mv -->
  <section class="mv">
     <div class="mv__inner">
