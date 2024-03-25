@@ -120,42 +120,4 @@ $contact = esc_url( home_url( '/contact/' ) );
     </div>
   </section>
 
-  <!-- contact -->
-  <section id="contact" class="contact top-contact top-page-information-contact">
-    <div class="contact__inner inner">
-      <div class="contact__content">
-        <div class="contact__left">
-          <div class="contact__imgTop">
-            <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/contact-logo.svg" alt="CodeUps">
-          </div>
-          <hr class="contact__line">
-          <address class="contact__address-content">
-            <div class="contact__info">
-              <p class="contact__address">沖縄県那覇市1-1</p>
-              <p class="contact__tel">TEL:0120-000-0000</p>
-              <p class="contact__time">営業時間:8:30-19:00</p>
-              <p class="contact__holiday">定休日:毎週火曜日</p>
-            </div>
-            <div class="contact__map">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3578.99218715572!2d127.6908583!3d26.2294434!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e56bd0b4a42ff1%3A0x36812e0e598f7d6b!2z44CSOTAwLTAwMDUg5rKW57iE55yM6YKj6KaH5biC5aSp5LmF77yR5LiB55uu77yR!5e0!3m2!1sja!2sjp!4v1706150336565!5m2!1sja!2sjp"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-          </address>
-        </div>
-        <div class="contact__right">
-          <div class="contact__title title">
-            <p class="title__main title__main--big">Contact</p>
-            <h2 class="title__sub title__sub--contact">お問い合せ</h2>
-            <p class="title__subText">ご予約・お問い合わせはコチラ</p>
-          </div>
-          <div class="contact__btn">
-            <a href="<?php echo $contact; ?>" class="btn"><span>Contact us</span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
 <?php get_footer(); ?>
