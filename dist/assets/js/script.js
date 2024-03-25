@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (tabMap[text]) {
         e.preventDefault(); // デフォルトのリンク動作をキャンセル
         // 対応するtabパラメータを使用してpage-information.htmlに遷移
-        window.location.href = 'page-information.html?tab=' + tabMap[text];
+        window.location.href = 'information/?tab=' + tabMap[text];
       }
     });
   });
