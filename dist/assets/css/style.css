@@ -247,6 +247,10 @@ a {
 	padding-top: 3rem;
 }
 
+.top-footer.top-footer--mt0 {
+	margin-top: 0;
+}
+
 .top-footer.top-page-voice-footer {
 	margin-top: 6.1875rem;
 }

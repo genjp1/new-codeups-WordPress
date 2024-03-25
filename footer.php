@@ -12,6 +12,8 @@ $terms = esc_url( home_url( '/terms/' ) );
 $contact = esc_url( home_url( '/contact/' ) );
 ?> 
  
+
+<?php if(!is_404()): ?>
  <div class="pagetop-block">
     <!--   トップに戻るボタン -->
     <a class="pagetop" href="#">
@@ -19,6 +21,7 @@ $contact = esc_url( home_url( '/contact/' ) );
     </a>
   </div>
 
+  
   <!-- contact -->
   <section id="contact" class="contact top-contact">
     <div class="contact__inner inner">
@@ -56,8 +59,9 @@ $contact = esc_url( home_url( '/contact/' ) );
       </div>
     </div>
   </section>
+  <?php endif; ?>
 
-<footer class="footer  top-footer">
+<footer class="footer  top-footer <?php if(is_404()){ echo 'top-footer--mt0';} ?> ">
     <div class="footer__inner inner">
       <div class="footer__icon">
         <div class="footer__logo">
