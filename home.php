@@ -16,11 +16,7 @@
   </section>
 
   <!-- パンくず あとでプラグイン化する。-->
-  <div class="breadcrumb">
-    <div class="inner">
-      <div><a href="index.html">TOP</a> > ブログ一覧</div>
-    </div>
-  </div>
+  <?php get_template_part('breadcrumb'); ?>
 
   <!-- page-blog -->
   <section class="page-blog top-page-blog">
