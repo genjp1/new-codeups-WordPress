@@ -28,11 +28,24 @@ $contact = esc_url( home_url( '/contact/' ) );
   
   <header class="header">
     <div class="header__inner">
-      <h1 class="header__logo">
-        <a href="<?php echo $home; ?>" class="logo">
+
+
+    <!-- logoのh1,div切り替え -->
+      <?php if(is_front_page()): ?>
+        <h1 class="p-header__logo">
+      <?php else :?>
+        <div class="p-header__logo">
+      <?php endif; ?>
+      <a href="<?php echo $home; ?>" class="logo">
           <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/logo.svg" alt="CodeUps">
         </a>
-      </h1>
+      <?php if(is_front_page()): ?>
+        </h1>
+      <?php else :?>
+        </div>
+      <?php endif; ?>
+
+
       <button class="header__drawer hamburger js-hamburger">
         <span></span>
         <span></span>
