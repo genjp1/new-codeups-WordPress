@@ -30,11 +30,7 @@ $contact = esc_url( home_url( '/contact/' ) );
   </section>
 
   <!-- パンくず あとでプラグイン化する。-->
-  <div class="breadcrumb">
-    <div class="inner">
-      <div><a href="index.html">TOP</a> > ダイビング情報</div>
-    </div>
-  </div>
+  <?php get_template_part('breadcrumb'); ?>
 
   <!-- page-information -->
   <section class="page-information top-page-information">
