@@ -511,7 +511,7 @@ hr.blog-article__line {
 	object-fit: cover;
 }
 
-.blog-article__text {
+.blog-article__content p {
 	color: #0D2936;
 	font-size: 1rem;
 	font-style: normal;
@@ -4096,7 +4096,7 @@ hr.blog-article__line {
 	transition: 0.5s;
 }
 
-.blog-article__text {
+.blog-article__content p {
 	margin-top: 2.5rem;
 }
 

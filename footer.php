@@ -25,7 +25,7 @@ $contact = esc_url( home_url( '/contact/' ) );
       <div class="contact__content">
         <div class="contact__left">
           <div class="contact__imgTop">
-            <img src="./assets/images/common/contact-logo.svg" alt="CodeUps">
+            <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/contact-logo.svg" alt="CodeUps">
           </div>
           <hr class="contact__line">
           <address class="contact__address-content">

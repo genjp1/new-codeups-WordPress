@@ -28,7 +28,7 @@
           <?php if (have_posts()): ?>
             <?php while (have_posts()) : the_post(); ?>
 
-          <a href="page-blogDetail.html" class="blog-cards__card card">
+          <a href="<?php the_permalink(); ?>" class="blog-cards__card card">
             <?php if (has_post_thumbnail()): ?>
                 <!-- 投稿にアイキャッチ画像が有る場合の処理 -->
                 <div class="card__img">
@@ -42,7 +42,7 @@
               <time class="card__date" datetime="<?php the_time('c')?>"><?php the_time('Y.m/d')?></time>
               <h3 class="card__title"><?php the_title();?></h3>
               <hr class="card__line card__line--page-blog">
-              <p class="card__text"><?php the_content();?></p>
+              <p class="card__text"><?php the_excerpt();?></p>
             </div>
           </a>
 
@@ -67,6 +67,7 @@
           <div class="sidebar__popular">
             <h2 class="sidebar__title">人気記事</h2>
             <div class="sidebar__cards popular-cards">
+
               <a href="page-blogDetail.html" class="popular-cards__card popular-card">
                 <div class="popular-card__content">
                   <div class="popular-card__img colorbox">
@@ -100,6 +101,7 @@
                   </div>
                 </div>
               </a>
+              
             </div>
           </div>
           <div class="sidebar__review">
