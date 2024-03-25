@@ -9,7 +9,7 @@ $blog = esc_url( home_url( '/blog/' ) );
 $voice = esc_url( home_url( '/voice/' ) );
 $price = esc_url( home_url( '/price/' ) );
 $faq = esc_url( home_url( '/faq/' ) );
-$policy = esc_url( home_url( '/policy/' ) );
+$privacypolicy = esc_url( home_url( '/privacypolicy/' ) );
 $terms = esc_url( home_url( '/terms/' ) );
 $contact = esc_url( home_url( '/contact/' ) );
 ?>

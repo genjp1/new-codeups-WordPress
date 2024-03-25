@@ -17,7 +17,7 @@ $blog = esc_url( home_url( '/blog/' ) );
 $voice = esc_url( home_url( '/voice/' ) );
 $price = esc_url( home_url( '/price/' ) );
 $faq = esc_url( home_url( '/faq/' ) );
-$policy = esc_url( home_url( '/policy/' ) );
+$privacypolicy = esc_url( home_url( '/privacypolicy/' ) );
 $terms = esc_url( home_url( '/terms/' ) );
 $contact = esc_url( home_url( '/contact/' ) );
 ?>
@@ -90,7 +90,7 @@ $contact = esc_url( home_url( '/contact/' ) );
               </li>
               <li class="sp-nav__item"><span><a href="<?php echo $faq; ?>">よくある質問</a></span>
               </li>
-              <li class="sp-nav__item"><span><a href="<?php echo $policy; ?>">プライバシー<br>ポリシー</a></span>
+              <li class="sp-nav__item"><span><a href="<?php echo $privacypolicy; ?>">プライバシー<br>ポリシー</a></span>
               </li>
               <li class="sp-nav__item"><span><a href="<?php echo $terms; ?>">利用規約</a></span>
               </li>
