@@ -511,6 +511,13 @@ hr.blog-article__line {
 	object-fit: cover;
 }
 
+.blog-article__img img {
+	-o-object-fit: cover;
+	height: 100%;
+	object-fit: cover;
+	width: 100%;
+}
+
 .blog-article__content p {
 	color: #0D2936;
 	font-size: 1rem;
