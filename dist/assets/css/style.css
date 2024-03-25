@@ -980,6 +980,13 @@ hr.campaign-card__line {
 	padding: 1rem 1rem 0.3125rem 1rem;
 }
 
+.card__img img {
+	-o-object-fit: cover;
+	height: 100%;
+	object-fit: cover;
+	width: 100%;
+}
+
 .card__body {
 	padding: 0.75rem 1rem 1.5rem;
 }
@@ -4109,11 +4116,11 @@ hr.blog-article__line {
 	row-gap: 4.9375rem;
 }
 
-.blog {
+.blog-bg {
 	position: relative;
 }
 
-.blog::before {
+.blog-bg::before {
 	background-image: url(../images/common/bg-blog.jpg);
 	background-position: center top;
 	background-repeat: no-repeat;

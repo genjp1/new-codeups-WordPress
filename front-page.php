@@ -251,7 +251,7 @@ $contact = esc_url( home_url( '/contact/' ) );
   </section>
 
   <!-- blog -->
-  <section id="blog" class="blog top-blog">
+  <section id="blog" class="blog blog-bg top-blog">
     <div class="blog__inner inner">
       <div class="blog__title title">
         <p class="title__main title__main--white">Blog</p>
