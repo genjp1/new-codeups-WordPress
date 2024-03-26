@@ -1,3 +1,3 @@
 <?php get_header(); ?>
-    archive.php
+archive.php
 <?php get_footer(); ?>
