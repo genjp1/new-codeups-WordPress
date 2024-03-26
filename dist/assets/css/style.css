@@ -741,13 +741,15 @@ hr.blog-article__line {
 }
 
 .campaign-card__img {
+	-o-object-fit: cover;
+	aspect-ratio: 280/188;
+	object-fit: cover;
 	overflow: hidden;
-	width: 100%;
 }
 
 .campaign-card__img img {
 	-o-object-fit: cover;
-	aspect-ratio: 280/188;
+	height: 100%;
 	object-fit: cover;
 	transition: 0.6s;
 	width: 100%;

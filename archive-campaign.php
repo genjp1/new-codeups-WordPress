@@ -48,16 +48,35 @@ $contact = esc_url( home_url( '/contact/' ) );
           <div class="tab__content js-tab-content is-active">
             <!-- ALL -->
             <ul class="tab__cards campaign-cards">
+
+<?php if (have_posts()): ?>
+	<?php while (have_posts()) : the_post(); ?>
+
+
               <li class="campaign-cards__card">
                 <div class="campaign-card">
                   <div class="campaign-card__item">
                     <div class="campaign-card__img">
-                      <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/campaign1.jpg" alt="水中に複数の魚がいる様子">
+                    <?php if (has_post_thumbnail()): ?>
+                        <!-- 投稿にアイキャッチ画像が有る場合の処理 -->
+                        <?php the_post_thumbnail(); ?>
+                    <?php else: ?>
+                        <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/noimage.jpg" alt="">
+                    <?php endif; ?>
                     </div>
                     <div class="campaign-card__body campaign-card__body--page-campaign">
                       <div class="campaign-card__head">
-                        <p class="campaign-card__tag campaign-card__tag--page-campaign">ライセンス講習</p>
-                        <h3 class="campaign-card__title campaign-card__title--page-campaign">ライセンス取得</h3>
+
+                        <!-- タクソノミー取得 -->
+                        <?php $terms = get_the_terms( get_the_ID(), 'campaign_category' ); ?>
+                        <p class="campaign-card__tag campaign-card__tag--page-campaign">
+                          <?php if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+                              $term = array_shift( $terms ); // 配列から最初の項目を取り出す
+                              echo $term->name;}?>
+                          </p>
+
+                          <!-- タイトル取得 -->
+                        <h3 class="campaign-card__title campaign-card__title--page-campaign"><?php the_title();?></h3>
                       </div>
 
 
@@ -99,7 +118,7 @@ $contact = esc_url( home_url( '/contact/' ) );
                       <?php endif; ?>
 
                       <?php if( !empty($campaignDetail['campaign-sub-text']) ): ?>
-                      <p class="campaign-card__reserve u-desktop"> <?php echo esc_html($campaignDetail['campaign-sub-text']); ?></p>
+                      <p class="campaign-card__reserve u-desktop"><?php echo esc_html($campaignDetail['campaign-sub-text']); ?></p>
                       <?php endif; ?>
 
                       <div class="campaign-card__button u-desktop">
@@ -110,6 +129,8 @@ $contact = esc_url( home_url( '/contact/' ) );
                 </div>
               </li>
               
+
+<?php endwhile; endif; ?>
             </ul>
           </div>
           
