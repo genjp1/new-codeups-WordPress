@@ -16,7 +16,7 @@
   </section>
 
   <!-- パンくず あとでプラグイン化する。-->
-  <?php get_template_part('breadcrumb'); ?>
+  <?php echo get_template_part('/template/breadcrumb')?>
 
   <!-- page-blog -->
   <section class="page-blog top-page-blog">

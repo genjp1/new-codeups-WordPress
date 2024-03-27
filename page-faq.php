@@ -16,11 +16,7 @@
   </section>
 
   <!-- パンくず あとでプラグイン化する。-->
-  <div class="breadcrumb">
-    <div class="inner">
-      <div><a href="index.html">TOP</a> > よくある質問</div>
-    </div>
-  </div>
+  <?php echo get_template_part('/template/breadcrumb')?>
 
   <!-- page-faq -->
   <div class="page-faq top-page-faq">

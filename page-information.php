@@ -30,7 +30,7 @@ $contact = esc_url( home_url( '/contact/' ) );
   </section>
 
   <!-- パンくず あとでプラグイン化する。-->
-  <?php get_template_part('breadcrumb'); ?>
+  <?php echo get_template_part('/template/breadcrumb')?>
 
   <!-- page-information -->
   <section class="page-information top-page-information">

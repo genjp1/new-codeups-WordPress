@@ -15,7 +15,7 @@
   </section>
 
   <!-- パンくず あとでプラグイン化する。-->
-<?php get_template_part('breadcrumb'); ?>
+  <?php get_template_part('breadcrumb'); ?>
 
   <!-- page-contact-complete -->
   <section class="page-contact-complete top-page-contact-complete">

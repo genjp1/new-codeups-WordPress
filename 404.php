@@ -15,7 +15,7 @@ $contact = esc_url( home_url( '/contact/' ) );
 ?>
 
   <!-- パンくず あとでプラグイン化する。-->
-  <?php get_template_part('breadcrumb'); ?>
+  <?php echo get_template_part('/template/breadcrumb')?>
 
     <!-- page-404 -->
     <section class="page-404 top-page-404">

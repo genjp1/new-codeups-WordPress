@@ -16,7 +16,7 @@
   </section>
 
   <!-- パンくず あとでプラグイン化する。-->
-  <?php get_template_part('breadcrumb'); ?>
+  <?php echo get_template_part('/template/breadcrumb')?>
 
   <?php if (have_posts()): ?>
 	<?php while (have_posts()) : the_post(); ?>
@@ -67,7 +67,7 @@
       <aside class="page-blog__sidebar sidebar">
         <?php get_sidebar(); ?>
       </aside>
-      
+
     </div>
 
   </section>
