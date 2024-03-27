@@ -18,23 +18,22 @@ $contact = esc_url( home_url( '/contact/' ) );
       </div>
       <div class="sub-mv__img">
         <picture>
-          <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/mv-campaign.jpg" class="sub-mv__img-pc">
-          <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/mv-campaign-sp.jpg" class="sub-m__img-sp" alt="5人のダイバーが水面に浮かんでいる様子">
+          <source media="(min-width: 768px)" 
+            srcset="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/mv-campaign.jpg" class="sub-mv__img-pc">
+          <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/mv-campaign-sp.jpg" class="sub-m__img-sp" 
+          alt="5人のダイバーが水面に浮かんでいる様子">
         </picture>
       </div>
     </div>
-  </section><?php get_header(); ?>
+  </section>
 
 <!-- パンくず あとでプラグイン化する。-->
-<div class="breadcrumb">
-    <div class="inner">
-      <div><a href="index.html">TOP</a> > キャンペーン</div>
-    </div>
-  </div>
+<?php get_template_part('breadcrumb'); ?>
 
   <!-- page-campaign -->
   <section class="page-campaign top-page-campaign">
     <div class="page-campaign__inner inner">
+
 
       <div class="page-campaign__tab tab">
         <div class="tab__list">
@@ -43,6 +42,7 @@ $contact = esc_url( home_url( '/contact/' ) );
           <button class="tab__button ">ファンダイビング</button>
           <button class="tab__button ">体験ダイビング</button>
         </div>
+
 
         <div class="tab__contents tab__contents--page-campaign">
           <div class="tab__content js-tab-content is-active">
