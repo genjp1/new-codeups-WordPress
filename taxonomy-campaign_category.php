@@ -71,7 +71,7 @@ $contact = esc_url( home_url( '/contact/' ) );
               $terms = get_terms(array(
                   // 表示するタクソノミースラッグを記述
                   'taxonomy' => 'campaign_category',
-                  'orderby' => 'name',
+                  'orderby' => 'ID',
                   'order'   => 'ASC',
                   // 表示するタームの数を指定
                   'number'  => 5
@@ -81,7 +81,7 @@ $contact = esc_url( home_url( '/contact/' ) );
               $home_class = (is_post_type_archive()) ? 'is-active' : '';
               $home_link = sprintf(
                   //カスタム投稿一覧ページへのaタグに付与するクラスを指定できる
-                  '<a class="tab__button %s" href="%s" alt="%s">全て</a>',
+                  '<a class="tab__button %s" href="%s" alt="%s">ALL</a>',
                   $home_class,
                   // カスタム投稿一覧ページのスラッグを指定
                   esc_url(home_url('/campaign')),
