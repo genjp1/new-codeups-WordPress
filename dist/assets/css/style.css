@@ -3572,11 +3572,6 @@ details[open] > summary::before {
 	margin-top: -0.5rem;
 }
 
-.tab__contents.tab__contents--page-campaign {
-	padding-left: 2rem;
-	padding-right: 2rem;
-}
-
 .tab__content {
 	display: none;
 }
@@ -5544,11 +5539,6 @@ hr.information__line {
 
 .tab__contents.tab__contents--page-information {
 	margin-top: 1.25rem;
-}
-
-.tab__contents.tab__contents--page-campaign {
-	padding-left: inherit;
-	padding-right: inherit;
 }
 
 .tab__cards {

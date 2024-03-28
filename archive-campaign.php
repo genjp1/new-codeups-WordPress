@@ -30,17 +30,81 @@ $contact = esc_url( home_url( '/contact/' ) );
 <!-- パンくず あとでプラグイン化する。-->
 <?php get_template_part('breadcrumb'); ?>
 
+  <!-- サブループ対象のセクション上部（セクションとセクションの間）に配置する -->
+  <?php
+    $args = array( 
+      //カスタム投稿のスラッグ名を記述
+      'post_type' => 'campaign',
+      //表示する記事の件数を指定
+      'posts_per_page' => 4,
+    );
+    $the_query = new WP_Query($args); if($the_query->have_posts()):
+  ?>
+
+
   <!-- page-campaign -->
   <section class="page-campaign top-page-campaign">
     <div class="page-campaign__inner inner">
 
 
-      <div class="page-campaign__tab tab">
+    <!-- <div class="page-campaign__tab tab">
+      <div class="tab__list">
+        <button class="tab__button  is-active">ALL</button>
+        <button class="tab__button ">ライセンス講習</button>
+        <button class="tab__button ">ファンダイビング</button>
+        <button class="tab__button ">体験ダイビング</button>
+      </div> -->
+
+    <div class="page-campaign__tab tab">
         <div class="tab__list">
-          <button class="tab__button  is-active">ALL</button>
-          <button class="tab__button ">ライセンス講習</button>
-          <button class="tab__button ">ファンダイビング</button>
-          <button class="tab__button ">体験ダイビング</button>
+            <?php
+              $queried_object = get_queried_object();
+              // カレントタームIDを取得（archive-campaign.php用）
+              $current_term_id = 0; // Default to 0 or any fallback
+              if ($queried_object instanceof WP_Term) {
+                  $current_term_id = $queried_object->term_id;
+              }
+              //ここまで（カレントタームIDを取得）
+              
+              $terms = get_terms(array(
+                  // 表示するタクソノミースラッグを記述
+                  'taxonomy' => 'campaign_category',
+                  'orderby' => 'name',
+                  'order'   => 'ASC',
+                  // 表示するタームの数を指定
+                  'number'  => 5
+              ));
+
+              // カスタム投稿一覧ページへのURL
+              $home_class = (is_post_type_archive()) ? 'is-active' : '';
+              $home_link = sprintf(
+                  //カスタム投稿一覧ページへのaタグに付与するクラスを指定できる
+                  '<a class="tab__button %s" href="%s" alt="%s">全て</a>',
+                  $home_class,
+                  // カスタム投稿一覧ページのスラッグを指定
+                  esc_url(home_url('/campaign')),
+                  esc_attr(__('View all posts', 'textdomain'))
+              );
+              echo sprintf(esc_html__('%s', 'textdomain'), $home_link);
+
+              // タームのリンク
+              if ($terms) {
+                  foreach ($terms as $term) {
+                      // カレントクラスに付与するクラスを指定できる
+                      $term_class = ($current_term_id === $term->term_id) ? 'is-active' : '';
+                      $term_link = sprintf(
+                          // 各タームに付与するクラスを指定できる
+                          '<a class="tab__button %s" href="%s" alt="%s">%s</a>',
+                          $term_class,
+                          esc_url(get_term_link($term->term_id)),
+                          esc_attr(sprintf(__('View all posts in %s', 'textdomain'), $term->name)),
+                          esc_html($term->name)
+                      );
+                      echo sprintf(esc_html__('%s', 'textdomain'), $term_link);
+                  }
+              }
+              ?>
+          </div>
         </div>
 
 
@@ -49,9 +113,8 @@ $contact = esc_url( home_url( '/contact/' ) );
             <!-- ALL -->
             <ul class="tab__cards campaign-cards">
 
-<?php if (have_posts()): ?>
-	<?php while (have_posts()) : the_post(); ?>
-
+            <!-- ループ処理開始の場所に持っていく -->
+            <?php while ($the_query->have_posts()): $the_query->the_post(); ?>
 
               <li class="campaign-cards__card">
                 <div class="campaign-card">
@@ -128,13 +191,13 @@ $contact = esc_url( home_url( '/contact/' ) );
                   </div>
                 </div>
               </li>
-              
-
-<?php endwhile; endif; ?>
-            </ul>
-          </div>
+            <!-- ループ終了の場所に持っていく -->
+            <?php endwhile; wp_reset_postdata(); ?>
           
             </ul>
+            <?php else : ?>
+                <p>記事が投稿されていません</p>
+            <?php endif; ?>
           </div>
         </div>
       </div>

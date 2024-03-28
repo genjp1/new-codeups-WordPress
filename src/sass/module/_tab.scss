@@ -337,13 +337,13 @@
   }
 
   .tab__contents.tab__contents--page-campaign {
-    padding-right: rem(32);
-    padding-left: rem(32);
+    // padding-right: rem(32);
+    // padding-left: rem(32);
 
-    @include mq("md") {
-      padding-right: inherit;
-      padding-left: inherit;
-    }
+    // @include mq("md") {
+    //   padding-right: inherit;
+    //   padding-left: inherit;
+    // }
 
   }
   
