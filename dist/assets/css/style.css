@@ -3798,16 +3798,20 @@ hr.voice-card__line {
 }
 
 .voice-card__img {
+	-o-object-fit: cover;
 	aspect-ratio: 180/140;
 	margin-left: 0.8125rem;
 	margin-top: 0.3125rem;
+	object-fit: cover;
 	width: 50%;
 }
 
 .voice-card__img img {
 	-o-object-fit: cover;
 	aspect-ratio: 180/140;
+	height: 100%;
 	object-fit: cover;
+	width: 100%;
 }
 
 .voice-card__text {
