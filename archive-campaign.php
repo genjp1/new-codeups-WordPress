@@ -28,7 +28,7 @@ $contact = esc_url( home_url( '/contact/' ) );
   </section>
 
 <!-- パンくず あとでプラグイン化する。-->
-<?php get_template_part('breadcrumb'); ?>
+<?php echo get_template_part('/template/breadcrumb')?>
 
   <!-- サブループ対象のセクション上部（セクションとセクションの間）に配置する -->
   <?php

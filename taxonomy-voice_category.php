@@ -26,11 +26,8 @@
             <div class="tab__list">
             <?php
               $queried_object = get_queried_object();
-              // カレントタームIDを取得（archive-voice.php用）
-              $current_term_id = 0; // Default to 0 or any fallback
-              if ($queried_object instanceof WP_Term) {
+              // カレントタームIDを取得（taxonomy-voice_category.phpp用）
                   $current_term_id = $queried_object->term_id;
-              }
               //ここまで（カレントタームIDを取得）
               
               $terms = get_terms(array(
