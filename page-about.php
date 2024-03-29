@@ -53,9 +53,9 @@
 
       <!-- <div class="modal-open-button js-modal-open">モーダルを開く</div> -->
 
-      <div class="gallery__modal modal js-modal">
+      <!-- <div class="gallery__modal modal js-modal">
         <div class="modal__body">
-          <!-- <span class="modal__close-button js-modal__close">閉じる</span> -->
+
           <div class="modal__content js-modal__content">
             <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/gallery1.jpg" alt="水中のサンゴと複数の小魚の様子">
           </div>
@@ -81,8 +81,37 @@
         <li class="gallery-list__item js-modal-open">
           <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/gallery6.jpg" alt="複数の魚が水中でサンゴの近くを泳いでいる様子">
         </li>
-      </ul>
+      </ul> -->
+      
 
+      <div class="gallery__list gallery-list">
+        <?php
+        $repeat_item = SCF::get_option_meta('gallery_options', 'gallery_lists');
+        foreach ($repeat_item as $index => $fields) {
+          $image_url = wp_get_attachment_image_src($fields['gallery_item'], 'full');
+        ?>
+        <figure class="gallery-list__item js-modal-open" data-micromodal-trigger="js-modal<?php echo $index + 1; ?>">
+          <img src="<?php echo $image_url[0]; ?>" alt="ギャラリーの画像" />
+        </figure>
+        <?php
+        }
+        ?>
+      </div>
+      <?php
+        $repeat_item = SCF::get_option_meta('gallery_options', 'gallery_lists');
+        foreach ($repeat_item as $index => $fields) {
+          $image_url = wp_get_attachment_image_src($fields['gallery_item'], 'full');
+        ?>
+      <div class="gallery__modal modal js-modal" id="js-modal<?php echo $index + 1; ?>" aria-hidden="true">
+        <div class="modal__body" tabindex="-1" data-micromodal-close>
+          <div class="modal__content js-modal__content" role="dialog" aria-modal="true">
+            <img src="<?php echo $image_url[0]; ?>" alt="" data-micromodal-close />
+          </div>
+        </div>
+      </div>
+      <?php
+        }
+        ?>
 
     </div>
   </section>
