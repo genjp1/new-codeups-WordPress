@@ -24,7 +24,8 @@
 
       <div class="contact">
         <div class="contact__pageinner">
-          <form action="mail.php" method="POST" class="contact__form form">
+        <?php echo do_shortcode('[contact-form-7 id="2758909" title="お問い合わせ"]'); ?>
+          <!-- <form action="mail.php" method="POST" class="contact__form form">
             <dl class="form__wrap">
               <dt class="form__label"><label for="your-name" class="is-required">お名前<span>必須</span></label></dt>
               <dd class="form__input form-input"><input id="your-name" type="text" placeholder="沖縄　太郎"></dd>
@@ -46,14 +47,6 @@
                 <label><input type="radio" name="category" value="体験ダイビングについて"><span>体験ダイビングについて</span></label>
               </dd>
             </dl>
-            <!-- <dl class="form__wrap">
-            <dt class="form__label">お問合せ項目<span>必須</span></dt>
-            <dd class="form__checkbox form-checkbox">
-              <label><input type="checkbox" name="お問合せ項目" value="ダイビング講習について"><span>ダイビング講習について</span></label>
-              <label><input type="checkbox" name="お問合せ項目" value="ファンデイビングについて"><span>ファンデイビングについて</span></label>
-              <label><input type="checkbox" name="お問合せ項目" value="体験ダイビングについて"><span>体験ダイビングについて</span></label>
-            </dd>
-          </dl> -->
             <dl class="form__wrap">
               <dt class="form__label">キャンペーン</dt>
               <dd class="form__select form-select">
@@ -84,7 +77,7 @@
               </div>
             </div>
 
-          </form>
+          </form> -->
         </div>
       </div>
 

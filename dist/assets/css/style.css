@@ -1596,6 +1596,8 @@ hr.contact__line {
 
 .form__wrap:nth-child(5) {
 	align-items: center;
+	align-items: flex-start;
+	display: flex;
 	margin-top: 1.375rem;
 }
 
@@ -3846,6 +3848,11 @@ hr.voice-card__line {
 .voice__btn {
 	margin-top: 2.5rem;
 	text-align: center;
+}
+
+.wpcf7-form-control {
+	display: flex;
+	flex-direction: column;
 }
 
 @media (hover: hover) and (pointer: fine) {

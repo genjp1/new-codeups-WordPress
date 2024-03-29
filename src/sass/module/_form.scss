@@ -4,6 +4,8 @@
     border-bottom: 2px dotted $green2;
     padding-bottom: rem(24);
 
+
+
     @include mq(md){
         display: flex;
         // align-items: center;
@@ -37,6 +39,10 @@
 .form__wrap:nth-child(5) {
     align-items: center;
     margin-top: rem(22);
+
+    //Contactform7用に追加
+    display: flex;
+    align-items: flex-start;
 
     @include mq("md") {
         margin-top: rem(34);

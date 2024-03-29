@@ -1,0 +1,7 @@
+@use "global" as *;
+
+ //Contactform7用に追加
+.wpcf7-form-control{
+    display: flex;
+    flex-direction: column;
+}
