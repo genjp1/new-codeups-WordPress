@@ -3,3 +3,8 @@
 .faq__inner {
 
 }
+
+.faq__content {
+    display: grid;
+    gap: rem(40);
+}

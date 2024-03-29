@@ -24,50 +24,22 @@
 
       <div class="faq">
         <div class="faq__inner">
-          <ul class="faq__list faq-list">
-            <li class="faq-list__item">
-              <p class="faq-list__item-question js-faq-question">ここに質問が入ります。</p>
-              <p class="faq-list__item-answer">
-                ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-              </p>
-            </li>
-            <li class="faq-list__item">
-              <p class="faq-list__item-question js-faq-question">ここに質問が入ります。</p>
-              <p class="faq-list__item-answer">
-                ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-              </p>
-            </li>
-            <li class="faq-list__item">
-              <p class="faq-list__item-question js-faq-question">ここに質問が入ります。</p>
-              <p class="faq-list__item-answer">
-                ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-              </p>
-            </li>
-            <li class="faq-list__item">
-              <p class="faq-list__item-question js-faq-question">ここに質問が入ります。</p>
-              <p class="faq-list__item-answer">
-                ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-              </p>
-            </li>
-            <li class="faq-list__item">
-              <p class="faq-list__item-question js-faq-question">ここに質問が入ります。</p>
-              <p class="faq-list__item-answer">
-                ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-              </p>
-            </li>
-            <li class="faq-list__item">
-              <p class="faq-list__item-question js-faq-question">ここに質問が入ります。</p>
-              <p class="faq-list__item-answer">
-                ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-              </p>
-            </li>
-            <li class="faq-list__item">
-              <p class="faq-list__item-question js-faq-question">ここに質問が入ります。</p>
-              <p class="faq-list__item-answer">
-                ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-              </p>
-            </li>
-          </ul>
+          <div class="faq__content">
+            <?php
+              $fields = SCF::get_option_meta( 'theme-options', 'faq-list' );
+              foreach ( $fields as $field_name => $fields_value ) {
+            ?>
+            <ul class="faq__list faq-list">
+              <li class="faq-list__item">
+                <p class="faq-list__item-question js-faq-question"><?php echo $fields_value['question']; ?></p>
+                <p class="faq-list__item-answer">
+                <?php echo $fields_value['answers']; ?>
+                </p>
+              </li>
+            </ul>
+            <?php } ?>
+
+          </div>
         </div>
       </div>
 
