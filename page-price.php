@@ -22,113 +22,165 @@
   <div class="page-price top-page-price">
     <div class="page-price__inner inner">
 
+    <!-- ライセンス講習 -->
       <div class="page-price__table">
         <table class="price-list">
           <thead class="price-list__head u-mobile">
             <tr>
               <th colspan="3" class="price-list__titleSp">ライセンス講習</th>
+              <!-- <th class="price-list__data u-desktopTable-cell">詳細</th>
+              <th class="price-list__cost u-desktopTable-cell">料金</th> -->
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td rowspan="3" class="price-list__titlePc u-desktopTable-cell">ライセンス講習</td>
-              <td class="price-list__data ">オープンウォーター<br class="u-mobile">ダイバーコース</td>
-              <td class="price-list__cost">¥50,000</td>
-            </tr>
-            <tr>
-              <td class="price-list__data">アドバンスド<br class="u-mobile">オープンウォーターコース</td>
-              <td class="price-list__cost">¥60,000</td>
-            </tr>
-            <tr>
-              <td class="price-list__data">レスキュー＋EFRコース</td>
-              <td class="price-list__cost">¥70,000</td>
-            </tr>
+            <?php
+            $license_fields = SCF::get_option_meta('price_options', 'license_lists');
+            $first = true; // 最初の行で「ライセンス講習」を表示するためのフラグ
+            foreach ($license_fields as $license_field_name => $license_value) {
+              $license_content = esc_html($license_value['license_content']);
+              $license_subContent = esc_html($license_value['license_subContent']);
+              $license_price = esc_html($license_value['license_price']);
+              if ($license_content && $license_subContent && $license_price) {
+                if ($first) {
+                  // 最初の行に「ライセンス講習」を表示し、3行分の高さを持たせる
+                  echo '<tr><td rowspan="3" class="price-list__titlePc u-desktopTable-cell">ライセンス講習</td>';
+                  $first = false;
+                } else {
+                  // 最初の行以外では、ライセンス講習のセルを挿入しない
+                  echo '<tr>';
+                }
+            ?>
+                  <td class="price-list__data"><?php echo $license_content; ?><br class="u-mobile"><?php echo $license_subContent; ?></td>
+                  <td class="price-list__cost">&yen;<?php echo number_format($license_price); ?></td>
+                </tr>
+            <?php
+              }
+            }
+            ?>
           </tbody>
         </table>
       </div>
+       <!-- end of ライセンス講習 -->
 
+      <!-- 体験ダイビング -->
       <div class="page-price__table">
         <table class="price-list">
           <thead class="price-list__head u-mobile">
             <tr>
               <th colspan="3" class="price-list__titleSp">体験ダイビング</th>
+              <!-- <th class="price-list__data u-desktopTable-cell">詳細</th>
+              <th class="price-list__cost u-desktopTable-cell">料金</th> -->
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td rowspan="4" class="price-list__titlePc price-list__titlePc--4row u-desktopTable-cell">体験ダイビング</td>
-              <td class="price-list__data">ビーチ体験ダイビング<br class="u-mobile">(半日)</td>
-              <td class="price-list__cost">¥7,000</td>
-            </tr>
-            <tr>
-              <td class="price-list__data">ビーチ体験ダイビング<br class="u-mobile">(1日)</td>
-              <td class="price-list__cost">¥14,000</td>
-            </tr>
-            <tr>
-              <td class="price-list__data">ボート体験ダイビング<br class="u-mobile">(半日)</td>
-              <td class="price-list__cost">¥10,000</td>
-            </tr>
-            <tr>
-              <td class="price-list__data">ボート体験ダイビング<br class="u-mobile">(1日)</td>
-              <td class="price-list__cost">¥18,000</td>
-            </tr>
+            <?php
+            $experience_fields = SCF::get_option_meta('price_options', 'experience_lists');
+            $first = true; // 最初の行で「体験ダイビング」を表示するためのフラグ
+            foreach ($experience_fields as $experience_field) {
+              $experience_content = esc_html($experience_field['experience_content']);
+              $experience_subContent = esc_html($experience_field['experience_subContent']);
+              $experience_price = esc_html($experience_field['experience_price']);
+              if ($experience_content && $experience_subContent && $experience_price) {
+                if ($first) {
+                  // 最初の行に「体験ダイビング」を表示し、3行分の高さを持たせる
+                  echo '<tr><td rowspan="4" class="price-list__titlePc u-desktopTable-cell">体験ダイビング</td>';
+                  $first = false;
+                } else {
+                  // 最初の行以外では、体験ダイビングのセルを挿入しない
+                  echo '<tr>';
+                }
+            ?>
+                  <td class="price-list__data"><?php echo $experience_content; ?><br class="u-mobile"><?php echo $experience_subContent; ?></td>
+                  <td class="price-list__cost">&yen;<?php echo number_format($experience_price); ?></td>
+                </tr>
+            <?php
+              }
+            }
+            ?>
           </tbody>
         </table>
       </div>
+      <!-- end of 体験ダイビング -->
 
+      <!-- ファンダイビング -->
       <div class="page-price__table">
         <table class="price-list">
           <thead class="price-list__head u-mobile">
             <tr>
-              <th colspan="3" class="price-list__titleSp price-list__titleSp--medium">ファンダイビング</th>
+              <th colspan="3" class="price-list__titleSp">ファンダイビング</th>
+              <!-- <th class="price-list__data u-desktopTable-cell">詳細</th>
+              <th class="price-list__cost u-desktopTable-cell">料金</th> -->
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td rowspan="4" class="price-list__titlePc price-list__titlePc--4row u-desktopTable-cell">ファンダイビング</td>
-              <td class="price-list__data">ビーチダイビング<br class="u-mobile">(2ダイブ)</td>
-              <td class="price-list__cost">¥14,000</td>
-            </tr>
-            <tr>
-              <td class="price-list__data">ボートダイビング<br class="u-mobile">(2ダイブ)</td>
-              <td class="price-list__cost">¥18,000</td>
-            </tr>
-            <tr>
-              <td class="price-list__data">スペシャルダイビング<br class="u-mobile">(2ダイブ)</td>
-              <td class="price-list__cost">¥24,000</td>
-            </tr>
-            <tr>
-              <td class="price-list__data">ナイトダイビング<br class="u-mobile">(1ダイブ)</td>
-              <td class="price-list__cost">¥10,000</td>
-            </tr>
+            <?php
+            $fun_fields = SCF::get_option_meta('price_options', 'fun_lists');
+            $first = true; // 最初の行で「ファンダイビング」を表示するためのフラグ
+            foreach ($fun_fields as $fun_field) {
+              $fun_content = esc_html($fun_field['fun_content']);
+              $fun_subContent = esc_html($fun_field['fun_subContent']);
+              $fun_price = esc_html($fun_field['fun_price']);
+              if ($fun_content && $fun_subContent && $fun_price) {
+                if ($first) {
+                  // 最初の行に「ファンダイビング」を表示し、3行分の高さを持たせる
+                  echo '<tr><td rowspan="4" class="price-list__titlePc u-desktopTable-cell">ファンダイビング</td>';
+                  $first = false;
+                } else {
+                  // 最初の行以外では、ファンダイビングのセルを挿入しない
+                  echo '<tr>';
+                }
+            ?>
+                  <td class="price-list__data"><?php echo $fun_content; ?><br class="u-mobile"><?php echo $fun_subContent; ?></td>
+                  <td class="price-list__cost">&yen;<?php echo number_format($fun_price); ?></td>
+                </tr>
+            <?php
+              }
+            }
+            ?>
           </tbody>
         </table>
       </div>
+      <!--  end of ファンダイビング -->
 
+      <!-- スペシャルダイビング -->
       <div class="page-price__table">
         <table class="price-list">
           <thead class="price-list__head u-mobile">
             <tr>
-              <th colspan="3" class="price-list__titleSp price-list__titleSp--long">スペシャルダイビング</th>
+              <th colspan="3" class="price-list__titleSp">スペシャルダイビング</th>
+              <!-- <th class="price-list__data u-desktopTable-cell">詳細</th>
+              <th class="price-list__cost u-desktopTable-cell">料金</th> -->
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td rowspan="3" class="price-list__titlePc u-desktopTable-cell">スペシャルダイビング</td>
-              <td class="price-list__data">貸切ダイビング<br class="u-mobile">(2ダイブ)</td>
-              <td class="price-list__cost">¥24,000</td>
-            </tr>
-            <tr>
-              <td class="price-list__data">1日ダイビング<br class="u-mobile">(3ダイブ)</td>
-              <td class="price-list__cost">¥32,000</td>
-            </tr>
-            <tr>
-              <td class="price-list__data">ナイトダイビング<br class="u-mobile">(2ダイブ)</td>
-              <td class="price-list__cost">¥14,000</td>
-            </tr>
+            <?php
+            $special_fields = SCF::get_option_meta('price_options', 'special_lists');
+            $first = true; // 最初の行で「スペシャルダイビング」を表示するためのフラグ
+            foreach ($special_fields as $special_field) {
+              $special_content = esc_html($special_field['special_content']);
+              $special_subContent = esc_html($special_field['special_subContent']);
+              $special_price = esc_html($special_field['special_price']);
+              if ($special_content && $special_subContent && $special_price) {
+                if ($first) {
+                  // 最初の行に「スペシャルダイビング」を表示し、3行分の高さを持たせる
+                  echo '<tr><td rowspan="3" class="price-list__titlePc u-desktopTable-cell">スペシャルダイビング</td>';
+                  $first = false;
+                } else {
+                  // 最初の行以外では、スペシャルダイビングのセルを挿入しない
+                  echo '<tr>';
+                }
+            ?>
+                  <td class="price-list__data"><?php echo $special_content; ?><br class="u-mobile"><?php echo $special_subContent; ?></td>
+                  <td class="price-list__cost">&yen;<?php echo number_format($special_price); ?></td>
+                </tr>
+            <?php
+              }
+            }
+            ?>
           </tbody>
         </table>
       </div>
+      <!-- end of スペシャルダイビング -->
 
     </div>
   </div>
