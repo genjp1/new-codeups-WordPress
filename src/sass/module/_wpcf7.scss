@@ -1,7 +1,20 @@
 @use "global" as *;
 
  //Contactform7用に追加
-.wpcf7-form-control{
+.form__radio .wpcf7-form-control{
     display: flex;
     flex-direction: column;
+    margin-left: -16px;
 }
+
+//スピナーの配置を変更する。（送信ボタン右横）
+div.wpcf7 .wpcf7-spinner {
+    display: none;
+  }
+
+
+// //「送信する」テキスト箇所のスタイル変更
+//   .wpcf7-form-control {
+//     display: inline-block;
+//     // flex-direction: column;
+// }

@@ -31,13 +31,18 @@
     border: none;
 }
 
-// .form-submit input[type=submit] {
-//     color: $white;
-//     transition: .3s;
-// }
+.form-submit input[type=submit] {
+    color: $white;
+    transition: .3s;
+}
 
 // .btn:hover,
 // .form-submit input[type=submit]:hover {
 //     color: red;
 // }
 
+
+//Contactform7用に追加
+.form-submit input[type=submit].btn-hovered {
+    color: $green2;
+  }

@@ -264,6 +264,18 @@ jQuery(function ($) {
 
 
 
+/*====================================================
+# Contact Form 7のボタンホバーエフェクト
+=====================================================*/
+$('.btn').hover(
+  function() {
+    $('.form-submit input[type=submit]').addClass('btn-hovered');
+  }, function() {
+    $('.form-submit input[type=submit]').removeClass('btn-hovered');
+  }
+);
+
+
 });
 
 

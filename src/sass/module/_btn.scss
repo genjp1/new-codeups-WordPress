@@ -8,7 +8,7 @@
   z-index: 1;
   display: inline-block;
   max-width: rem(300);
-  padding: rem(14) rem(87) rem(14) rem(37);
+  padding: 14px 87px 14px 37px;//14px 87px 14px 37px rem(14) rem(87) rem(14) rem(37)
   text-align: center;
 
   color: $white;
@@ -19,17 +19,21 @@
   line-height: 1.57143; /* 157.143% */
   cursor:pointer;
   margin-bottom: 4px;
+
+  //Contactform7用に追加
+  margin-left: -4px;
 }
 
 .btn.btn--white {
   background: $white;
   border:  1px solid $white;
   color: $green2;
-  padding: rem(14) rem(96) rem(14) rem(37);
+  padding: 14px 96px 14px 37px;//14px 96px 14px 37px rem(14) rem(96) rem(14) rem(37)
 }
 
 .btn.btn--contact {
-  padding: rem(14) rem(106) rem(14) rem(47);
+  padding: 14px 106px 14px 47px;//14px 106px 14px 47px rem(14) rem(106) rem(14) rem(47)
+  
 }
 
 .btn::after {
@@ -137,5 +141,10 @@
 }
 
 .btn.btn--contact span::after {
-  left: rem(-90);
+  // left: rem(-90);
+
+  //Contactform7用に追加
+  left: -68px;
+  top: -35px;
+  width: 203px;
 }

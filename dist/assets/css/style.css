@@ -638,8 +638,9 @@ hr.blog-article__line {
 	font-weight: 400;
 	line-height: 1.57143; /* 157.143% */
 	margin-bottom: 4px;
+	margin-left: -4px;
 	max-width: 18.75rem;
-	padding: 0.875rem 5.4375rem 0.875rem 2.3125rem;
+	padding: 14px 87px 14px 37px;
 	position: relative;
 	text-align: center;
 	z-index: 1;
@@ -649,11 +650,11 @@ hr.blog-article__line {
 	background: #fff;
 	border: 1px solid #fff;
 	color: #408F95;
-	padding: 0.875rem 6rem 0.875rem 2.3125rem;
+	padding: 14px 96px 14px 37px;
 }
 
 .btn.btn--contact {
-	padding: 0.875rem 6.625rem 0.875rem 2.9375rem;
+	padding: 14px 106px 14px 47px;
 }
 
 .btn::after {
@@ -720,7 +721,9 @@ hr.blog-article__line {
 }
 
 .btn.btn--contact span::after {
-	left: -5.625rem;
+	left: -68px;
+	top: -35px;
+	width: 203px;
 }
 
 .campaign-card {
@@ -1559,6 +1562,15 @@ hr.contact__line {
 .form-submit input::-moz-foucus-inner {
 	border: none;
 	padding: 0;
+}
+
+.form-submit input[type=submit] {
+	color: #fff;
+	transition: 0.3s;
+}
+
+.form-submit input[type=submit].btn-hovered {
+	color: #408F95;
 }
 
 .form-textarea textarea {
@@ -3850,9 +3862,14 @@ hr.voice-card__line {
 	text-align: center;
 }
 
-.wpcf7-form-control {
+.form__radio .wpcf7-form-control {
 	display: flex;
 	flex-direction: column;
+	margin-left: -16px;
+}
+
+div.wpcf7 .wpcf7-spinner {
+	display: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -4742,15 +4759,15 @@ hr.contact__line {
 }
 
 .form__wrap + .form__wrap {
-	margin-top: 2.3125rem;
+	margin-top: 37px;
 }
 
 .form__wrap:nth-child(4) {
-	padding-bottom: 2.3125rem;
+	padding-bottom: 37px;
 }
 
 .form__wrap:nth-child(5) {
-	margin-top: 2.125rem;
+	margin-top: 34px;
 }
 
 .form__wrap:nth-child(6) {
@@ -4787,7 +4804,7 @@ hr.contact__line {
 }
 
 .form__submit {
-	margin-top: 2.5rem;
+	margin-top: 36px;
 }
 
 .gallery-list {
