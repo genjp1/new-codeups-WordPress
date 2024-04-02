@@ -160,6 +160,8 @@
     text-align: center;
 
     @include mq("md") {
-        margin-top: 36px;//40px rem(40)
+
+        //Contactform7用に追加
+        margin-top: 40px;//40px rem(40)
     }
 }

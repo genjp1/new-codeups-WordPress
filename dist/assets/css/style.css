@@ -654,7 +654,7 @@ hr.blog-article__line {
 }
 
 .btn.btn--contact {
-	padding: 14px 106px 14px 47px;
+	padding: 0px;
 }
 
 .btn::after {
@@ -721,9 +721,7 @@ hr.blog-article__line {
 }
 
 .btn.btn--contact span::after {
-	left: -68px;
-	top: -35px;
-	width: 203px;
+	left: -195px;
 }
 
 .campaign-card {
@@ -1566,6 +1564,7 @@ hr.contact__line {
 
 .form-submit input[type=submit] {
 	color: #fff;
+	padding: 14px 111px 14px 54px;
 	transition: 0.3s;
 }
 
@@ -4804,7 +4803,7 @@ hr.contact__line {
 }
 
 .form__submit {
-	margin-top: 36px;
+	margin-top: 40px;
 }
 
 .gallery-list {

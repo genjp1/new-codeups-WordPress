@@ -1,3 +1,6 @@
+
+<!-- <?php if( !is_user_logged_in() && !is_bot() ) { set_post_views( get_the_ID() ); } ?> -->
+
 <?php
 $home = esc_url( home_url( '/' ) );
 $campaign = esc_url( home_url( '/campaign/' ) );
@@ -13,6 +16,8 @@ $contact = esc_url( home_url( '/contact/' ) );
 ?>
 
 
+
+
 <div class="sidebar__inner">
           <div class="sidebar__popular">
             <h2 class="sidebar__title">人気記事</h2>
@@ -21,8 +26,12 @@ $contact = esc_url( home_url( '/contact/' ) );
             $args = array(
                 'post_type' => 'post',// 投稿タイプ（postは通常の投稿）
                 'posts_per_page' => 3,// 取得する記事の件数
-                // 'meta_key' => 'views',// WP-PostViewsが持っているDBのフィールドであるviews（閲覧数）をキーとして
-                // 'orderby' => 'meta_value_num'// ↑に基づき並べ替えを実施
+                'meta_key'         => 'post_views_count',//投稿数をカウントするカスタムフィールド名
+                'orderby'          => 'meta_value_num',
+                'order'            => 'DESC',
+                'post_status'      => 'publish',
+                'caller_get_posts' => 1,
+                'offset'           => 0,
             );
             $the_query = new WP_Query($args);
             ?>
@@ -202,6 +211,8 @@ $contact = esc_url( home_url( '/contact/' ) );
               <a href="<?php echo $campaign; ?>" class="btn"><span>View more</span></a>
             </div>
           </div>
+
+
           <div class="sidebar__archive">
             <h2 class="sidebar__title">アーカイブ</h2>
 

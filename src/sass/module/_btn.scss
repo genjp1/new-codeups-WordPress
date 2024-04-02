@@ -32,8 +32,10 @@
 }
 
 .btn.btn--contact {
-  padding: 14px 106px 14px 47px;//14px 106px 14px 47px rem(14) rem(106) rem(14) rem(47)
+  // padding: 14px 106px 14px 47px;//14px 106px 14px 47px rem(14) rem(106) rem(14) rem(47)
   
+  //Contactform7用に追加
+  padding:0px
 }
 
 .btn::after {
@@ -143,8 +145,10 @@
 .btn.btn--contact span::after {
   // left: rem(-90);
 
-  //Contactform7用に追加
-  left: -68px;
-  top: -35px;
-  width: 203px;
+  // //Contactform7用に追加
+  // left: -68px;
+  // top: -35px;
+  // width: 203px;
+
+  left: -195px;
 }

@@ -94,43 +94,72 @@ add_action('wp_enqueue_scripts', 'my_script_init');
 // add_action( 'widgets_init', 'my_widget_init' );
 
 
-/**
- * アーカイブタイトル書き換え
- *
- * @param string $title 書き換え前のタイトル.
- * @return string $title 書き換え後のタイトル.
- */
-function my_archive_title( $title ) {
+// /**
+//  * アーカイブタイトル書き換え
+//  *
+//  * @param string $title 書き換え前のタイトル.
+//  * @return string $title 書き換え後のタイトル.
+//  */
+// function my_archive_title( $title ) {
 
-	if ( is_home() ) { /* ホームの場合 */
-		$title = 'ブログ';
-	} elseif ( is_category() ) { /* カテゴリーアーカイブの場合 */
-		$title = '' . single_cat_title( '', false ) . '';
-	} elseif ( is_tag() ) { /* タグアーカイブの場合 */
-		$title = '' . single_tag_title( '', false ) . '';
-	} elseif ( is_post_type_archive() ) { /* 投稿タイプのアーカイブの場合 */
-		$title = '' . post_type_archive_title( '', false ) . '';
-	} elseif ( is_tax() ) { /* タームアーカイブの場合 */
-		$title = '' . single_term_title( '', false );
-	} elseif ( is_search() ) { /* 検索結果アーカイブの場合 */
-		$title = '「' . esc_html( get_query_var( 's' ) ) . '」の検索結果';
-	} elseif ( is_author() ) { /* 作者アーカイブの場合 */
-		$title = '' . get_the_author() . '';
-	} elseif ( is_date() ) { /* 日付アーカイブの場合 */
-		$title = '';
-		if ( get_query_var( 'year' ) ) {
-			$title .= get_query_var( 'year' ) . '年';
-		}
-		if ( get_query_var( 'monthnum' ) ) {
-			$title .= get_query_var( 'monthnum' ) . '月';
-		}
-		if ( get_query_var( 'day' ) ) {
-			$title .= get_query_var( 'day' ) . '日';
-		}
-	}
-	return $title;
-};
-add_filter( 'get_the_archive_title', 'my_archive_title' );
+// 	if ( is_home() ) { /* ホームの場合 */
+// 		$title = 'ブログ';
+// 	} elseif ( is_category() ) { /* カテゴリーアーカイブの場合 */
+// 		$title = '' . single_cat_title( '', false ) . '';
+// 	} elseif ( is_tag() ) { /* タグアーカイブの場合 */
+// 		$title = '' . single_tag_title( '', false ) . '';
+// 	} elseif ( is_post_type_archive() ) { /* 投稿タイプのアーカイブの場合 */
+// 		$title = '' . post_type_archive_title( '', false ) . '';
+// 	} elseif ( is_tax() ) { /* タームアーカイブの場合 */
+// 		$title = '' . single_term_title( '', false );
+// 	} elseif ( is_search() ) { /* 検索結果アーカイブの場合 */
+// 		$title = '「' . esc_html( get_query_var( 's' ) ) . '」の検索結果';
+// 	} elseif ( is_author() ) { /* 作者アーカイブの場合 */
+// 		$title = '' . get_the_author() . '';
+// 	} elseif ( is_date() ) { /* 日付アーカイブの場合 */
+// 		$title = '';
+// 		if ( get_query_var( 'year' ) ) {
+// 			$title .= get_query_var( 'year' ) . '年';
+// 		}
+// 		if ( get_query_var( 'monthnum' ) ) {
+// 			$title .= get_query_var( 'monthnum' ) . '月';
+// 		}
+// 		if ( get_query_var( 'day' ) ) {
+// 			$title .= get_query_var( 'day' ) . '日';
+// 		}
+// 	}
+// 	return $title;
+// };
+// add_filter( 'get_the_archive_title', 'my_archive_title' );
+
+
+//管理画面、投稿の名称変更
+function Change_menulabel() {
+	global $menu;
+	global $submenu;
+	$name = 'ブログ';
+	$menu[5][0] = $name;
+	$submenu['edit.php'][5][0] = $name.'一覧';
+	$submenu['edit.php'][10][0] = '新しい'.$name;
+}
+function Change_objectlabel() {
+	global $wp_post_types;
+	$name = 'ブログ';
+	$labels = &$wp_post_types['post']->labels;
+	$labels->name = $name;
+	$labels->singular_name = $name;
+	$labels->add_new = _x('追加', $name);
+	$labels->add_new_item = $name.'の新規追加';
+	$labels->edit_item = $name.'の編集';
+	$labels->new_item = '新規'.$name;
+	$labels->view_item = $name.'を表示';
+	$labels->search_items = $name.'を検索';
+	$labels->not_found = $name.'が見つかりませんでした';
+	$labels->not_found_in_trash = 'ゴミ箱に'.$name.'は見つかりませんでした';
+}
+add_action( 'init', 'Change_objectlabel' );
+add_action( 'admin_menu', 'Change_menulabel' );
+
 
 
 /**
@@ -207,3 +236,73 @@ function remove_width_attribute( $html ) {
 }
 add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
 add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
+
+
+// /* ==========================================================================
+// ブログ - 人気記事 - カスタムフィールドの「post_views_count」にアクセス数を保存する
+// ========================================================================== */
+// function setPostViews($post_id) {
+//     $count_key = 'post_views_count';
+//     $count = get_post_meta($post_id, $count_key, true);
+//     if($count==''){
+//         $count = 0;
+//         delete_post_meta($post_id, $count_key);
+//         add_post_meta($post_id, $count_key, '0');
+//     }else{
+//         $count++;
+//         update_post_meta($post_id, $count_key, $count);
+//     }
+// }
+// //カスタムフィールドに保存されているアクセス数を取得する
+// function getPostViews($post_id){
+//     $count_key = 'post_views_count';
+//     $count = get_post_meta($post_id, $count_key, true);
+//     if($count==''){
+//         delete_post_meta($post_id, $count_key);
+//         add_post_meta($post_id, $count_key, '0');
+//         return "0 View";
+//     }
+//         return $count.' Views';
+// }
+
+// //クローラーのアクセス判別
+// function is_bot() {
+// 	$ua = $_SERVER['HTTP_USER_AGENT'];
+   
+// 	$bot = array(
+// 		  "googlebot",
+// 		  "msnbot",
+// 		  "yahoo"
+// 	);
+// 	foreach( $bot as $bot ) {
+// 	  if (stripos( $ua, $bot ) !== false){
+// 		return true;
+// 	  }
+// 	}
+// 	return false;
+//   }
+
+/* ==========================================================================
+Contact Form 7 送信後にそれぞれの完了ページへ遷移 ※本番環境にてページIDの調整必要
+========================================================================== */
+function add_origin_thanks_page() {
+    $contact = home_url('/contact-thanks/');
+
+    echo <<< EOC
+        <script>
+        var thanksPage = {
+            229: '{$contact}',
+        };
+        document.addEventListener( 'wpcf7mailsent', function( event ) {
+            location = thanksPage[event.detail.contactFormId];
+        }, false );
+        </script>
+    EOC;
+}
+add_action( 'wp_footer', 'add_origin_thanks_page' );
+
+// Contact Form 7で自動挿入されるPタグ、brタグを削除
+add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
+function wpcf7_autop_return_false() {
+  return false;
+} 
