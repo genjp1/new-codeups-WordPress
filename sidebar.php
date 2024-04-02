@@ -16,43 +16,44 @@ $contact = esc_url( home_url( '/contact/' ) );
 <div class="sidebar__inner">
           <div class="sidebar__popular">
             <h2 class="sidebar__title">人気記事</h2>
-            <div class="sidebar__cards popular-cards">
 
-              <a href="page-blogDetail.html" class="popular-cards__card popular-card">
-                <div class="popular-card__content">
-                  <div class="popular-card__img colorbox">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/blog4.jpg" alt="水中で多くの魚が泳いている様子" class="popular-card__img-img">
-                  </div>
-                  <div class="popular-card__info">
-                    <time class="popular-card__date" datetime="2023-11-17">2023.11/17</time>
-                    <p class="popular-card__title">ライセンス取得</p>
-                  </div>
-                </div>
-              </a>
-              <a href="page-blogDetail.html" class="sidebar-cards__card popular-card">
-                <div class="popular-card__content">
-                  <div class="popular-card__img colorbox">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/blog2.jpg" alt="水中で多くの魚が泳いている様子" class="popular-card__img-img">
-                  </div>
-                  <div class="popular-card__info">
-                    <time class="popular-card__date" datetime="2023-11-17">2023.11/17</time>
-                    <p class="popular-card__title">ウミガメと泳ぐ</p>
-                  </div>
-                </div>
-              </a>
-              <a href="page-blogDetail.html" class="sidebar-cards__card popular-card">
-                <div class="popular-card__content">
-                  <div class="popular-card__img colorbox">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/blog3.jpg" alt="水中で多くの魚が泳いている様子" class="popular-card__img-img">
-                  </div>
-                  <div class="popular-card__info">
-                    <time class="popular-card__date" datetime="2023-11-17">2023.11/17</time>
-                    <p class="popular-card__title">カクレクマノミ</p>
-                  </div>
-                </div>
-              </a>
-              
-            </div>
+            <?php
+            $args = array(
+                'post_type' => 'post',// 投稿タイプ（postは通常の投稿）
+                'posts_per_page' => 3,// 取得する記事の件数
+                // 'meta_key' => 'views',// WP-PostViewsが持っているDBのフィールドであるviews（閲覧数）をキーとして
+                // 'orderby' => 'meta_value_num'// ↑に基づき並べ替えを実施
+            );
+            $the_query = new WP_Query($args);
+            ?>
+            <?php if ($the_query->have_posts()) : ?>
+              <div class="sidebar__cards popular-cards">
+                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+
+                  <a href="<?php the_permalink(); ?>" class="popular-cards__card popular-card">
+                    <div class="popular-card__content">
+                      <div class="popular-card__img colorbox">
+
+                      <?php if (has_post_thumbnail()): ?>
+                        <!-- 投稿にアイキャッチ画像が有る場合の処理 -->
+                      <?php the_post_thumbnail(); ?>
+                      <?php else: ?>
+                          <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/noimage.jpg" alt="" class="review-card__img-img">
+                      <?php endif; ?>
+
+                      </div>
+                      <div class="popular-card__info">
+                        <time class="popular-card__date" datetime="<?php the_time('c')?>"><?php the_time('Y.m.d')?></time>
+                        <p class="popular-card__title"><?php the_title();?></p>
+                      </div>
+                    </div>
+                  </a>
+                  <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
+              </div>
+            <?php else : ?>
+                <p>記事が投稿されていません</p>
+            <?php endif; ?>
           </div>
 
           <div class="sidebar__review">
