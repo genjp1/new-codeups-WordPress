@@ -40,6 +40,44 @@ $contact = esc_url( home_url( '/contact/' ) );
   </div> -->
 
  <!-- mv -->
+ <!-- <section class="mv">
+    <div class="mv__inner">
+      <div class="mv__title-wrap">
+        <h2 class="mv__main-title">DIVING</h2>
+        <p class="mv__sub-title">into the ocean</p>
+      </div>
+      <div class="mv__swiper swiper js-mv-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="mv__swiper-img">
+              <picture>
+                <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/mv1.jpg" class="mv">
+                <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/mv1-sp.jpg" class="mv" alt="水中のウミガメの様子">
+              </picture>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="mv__swiper-img">
+              <picture>
+                <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/mv2.jpg" class="mv">
+                <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/mv2-sp.jpg" class="mv" alt="水中にウミガメと2人のダイバーいる様子">
+              </picture>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="mv__swiper-img">
+              <picture>
+                <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/mv3.jpg" class="mv">
+                <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/mv3-sp.jpg" class="mv" alt="ボートと海の様子">
+              </picture>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+
  <section class="mv">
     <div class="mv__inner">
       <div class="mv__title-wrap">
