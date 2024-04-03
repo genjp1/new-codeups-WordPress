@@ -92,6 +92,7 @@ $contact = esc_url( home_url( '/contact/' ) );
           $mvSP = get_field('mvSP', 244); // SPの画像491配列
           $i = 1;
           foreach($mvPC as $image):
+            // echo ($mvPC['mvPC'.$i].$i);
             if ($mvPC['mvPC'.$i] && $mvSP['mvSP'.$i]) :
           ?>
 
@@ -104,11 +105,22 @@ $contact = esc_url( home_url( '/contact/' ) );
             </div>
           </div>
         
-          <?php $i += 1; endif; endforeach; ?>
+          <?php endif; $i += 1; endforeach; ?>
         </div>
       </div>
     </div>
   </section>
+
+    <!-- サブループ対象のセクション上部（セクションとセクションの間）に配置する -->
+    <?php
+    $args = array( 
+      //カスタム投稿のスラッグ名を記述
+      'post_type' => 'campaign',
+      //表示する記事の件数を指定
+      'posts_per_page' => 4,
+    );
+    $the_query = new WP_Query($args); if($the_query->have_posts()):
+  ?>
 
   <!-- campaign -->
   <section id="campaign" class="campaign top-campaign">
@@ -126,17 +138,42 @@ $contact = esc_url( home_url( '/contact/' ) );
         <div class="campaign__swiper campaign-swiper">
           <div class="swiper js-campaign-swiper">
             <ul class="swiper-wrapper">
+
+            <!-- ループ処理開始の場所に持っていく -->
+            <?php while ($the_query->have_posts()): $the_query->the_post(); ?>
+
               <li class="campaign-swiper__card swiper-slide">
                 <div class="campaign-card">
                   <div class="campaign-card__item">
                     <div class="campaign-card__img">
-                      <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/campaign1.jpg" alt="水中に複数の魚がいる様子">
+                    <?php if (has_post_thumbnail()): ?>
+                        <!-- 投稿にアイキャッチ画像が有る場合の処理 -->
+                        <?php the_post_thumbnail(); ?>
+                    <?php else: ?>
+                        <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/noimage.jpg" alt="">
+                    <?php endif; ?>
                     </div>
                     <div class="campaign-card__body">
                       <div class="campaign-card__head">
-                        <p class="campaign-card__tag">ライセンス講習</p>
-                        <h3 class="campaign-card__title">ライセンス取得</h3>
+
+                        <!-- タクソノミー取得 -->
+                        <?php $terms = get_the_terms( get_the_ID(), 'campaign_category' ); ?>
+                        <p class="campaign-card__tag campaign-card__tag--page-campaign">
+                          <?php if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+                              $term = array_shift( $terms ); // 配列から最初の項目を取り出す
+                              echo $term->name;}?>
+                          </p>
+                        <!-- タイトル取得 -->
+                        <h3 class="campaign-card__title"><?php the_title();?></h3>
                       </div>
+
+                      <!-- ACF変数化 -->
+                      <?php 
+                       $campaignPrice = get_field('campaign_price');
+                       $campaignDetail= get_field('campaign_detail');
+                       $campaignPeriod = $campaignDetail['campaign-period'];
+                      ?>
+
                       <div class="campaign-card__text-blok">
                         <hr class="campaign-card__line">
                         <p class="campaign-card__text">全部コミコミ(お一人様)</p>
@@ -145,80 +182,19 @@ $contact = esc_url( home_url( '/contact/' ) );
                           <p class="campaign-card__price-discount">¥46,000</p>
                         </div>
                       </div>
+                      
                     </div>
                   </div>
                 </div>
               </li>
-              <li class="campaign-swiper__card swiper-slide">
-                <div class="campaign-card">
-                  <div class="campaign-card__item">
-                    <div class="campaign-card__img">
-                      <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/campaign2.jpg" alt="水面にボートが浮かんでいる様子">
-                    </div>
-                    <div class="campaign-card__body">
-                      <div class="campaign-card__head">
-                        <p class="campaign-card__tag">体験ダイビング</p>
-                        <h3 class="campaign-card__title">貸切体験ダイビング</h3>
-                      </div>
-                      <div class="campaign-card__text-blok">
-                        <hr class="campaign-card__line">
-                        <p class="campaign-card__text">全部コミコミ(お一人様)</p>
-                        <div class="campaign-card__price">
-                          <p class="campaign-card__price-before">¥24,000</p>
-                          <p class="campaign-card__price-discount">¥18,000</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="campaign-swiper__card swiper-slide">
-                <div class="campaign-card">
-                  <div class="campaign-card__item">
-                    <div class="campaign-card__img">
-                      <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/campaign3.jpg" alt="水中にクラゲが複数いる様子">
-                    </div>
-                    <div class="campaign-card__body">
-                      <div class="campaign-card__head">
-                        <p class="campaign-card__tag">体験ダイビング</p>
-                        <h3 class="campaign-card__title">ナイトダイビング</h3>
-                      </div>
-                      <div class="campaign-card__text-blok">
-                        <hr class="campaign-card__line">
-                        <p class="campaign-card__text">全部コミコミ(お一人様)</p>
-                        <div class="campaign-card__price">
-                          <p class="campaign-card__price-before">¥10,000</p>
-                          <p class="campaign-card__price-discount">¥8,000</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="campaign-swiper__card swiper-slide">
-                <div class="campaign-card">
-                  <div class="campaign-card__item">
-                    <div class="campaign-card__img">
-                      <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/campaign4.jpg" alt="2人のダイバーが海面にいる様子">
-                    </div>
-                    <div class="campaign-card__body">
-                      <div class="campaign-card__head">
-                        <p class="campaign-card__tag">ファンダイビング</p>
-                        <h3 class="campaign-card__title">貸切ファンダイビング</h3>
-                      </div>
-                      <div class="campaign-card__text-blok">
-                        <hr class="campaign-card__line">
-                        <p class="campaign-card__text">全部コミコミ(お一人様)</p>
-                        <div class="campaign-card__price">
-                          <p class="campaign-card__price-before">¥20,000</p>
-                          <p class="campaign-card__price-discount">¥16,000</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
+              <!-- ループ終了の場所に持っていく -->
+              <?php endwhile; wp_reset_postdata(); ?>
+            
+              </ul>
+              <?php else : ?>
+                  <p>記事が投稿されていません</p>
+              <?php endif; ?>
+
           </div>
           <div class="swiper-pagination"></div>
         </div>

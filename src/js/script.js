@@ -186,9 +186,18 @@ $(function () {
     close = $(".js-modal__close"),
     modal = $(".js-modal");
 
+  // //①静的コーディング要素の場合
+  // //開くボタンをクリックしたらモーダルを表示する
+  // open.on("click", function () {
+  //   modal.addClass("is-open");
+  // });
+
+  //②WordPressの場合
   //開くボタンをクリックしたらモーダルを表示する
   open.on("click", function () {
-    modal.addClass("is-open");
+    let id = $(this).data("micromodal-trigger");
+    // console.log(id);
+    $('#' + id).addClass("is-open");
   });
 
   //閉じるボタンをクリックしたらモーダルを閉じる
@@ -198,26 +207,27 @@ $(function () {
 });
 
 
-const close = $(".js-modal__close"),
-modal = $(".js-modal"),
-modalContent = $(".js-modal__content img");
+//以下、不要
+// const close = $(".js-modal__close"),
+// modal = $(".js-modal"),
+// modalContent = $(".js-modal__content img");
 
-// 画像をクリックしたらモーダルを表示する
-$(".js-modal-open img").on("click", function () {
-const src = $(this).attr("src");
-const alt = $(this).attr("alt");
-modalContent.attr("src", src);
-modalContent.attr("alt", alt);
-modal.addClass("is-open");
-});
+// // 画像をクリックしたらモーダルを表示する
+// $(".js-modal-open img").on("click", function () {
+// const src = $(this).attr("src");
+// const alt = $(this).attr("alt");
+// modalContent.attr("src", src);
+// modalContent.attr("alt", alt);
+// modal.addClass("is-open");
+// });
 
-// 閉じるボタンをクリックしたらモーダルを閉じる
-close.add(modal).on("click", function (event) {
-// モーダルのコンテンツ部分のクリックは無視する
-if (!$(event.target).closest(".modal__body").length) {
-modal.removeClass("is-open");
-}
-});
+// // 閉じるボタンをクリックしたらモーダルを閉じる
+// close.add(modal).on("click", function (event) {
+// // モーダルのコンテンツ部分のクリックは無視する
+// if (!$(event.target).closest(".modal__body").length) {
+// modal.removeClass("is-open");
+// }
+// });
 
 
 /*=====================================================================
