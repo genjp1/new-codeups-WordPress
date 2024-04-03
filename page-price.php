@@ -23,7 +23,7 @@
     <div class="page-price__inner inner">
 
     <!-- ライセンス講習 -->
-      <div class="page-price__table">
+      <div id="licence" class="page-price__table">
         <table class="price-list">
           <thead class="price-list__head u-mobile">
             <tr>
@@ -63,7 +63,7 @@
        <!-- end of ライセンス講習 -->
 
       <!-- 体験ダイビング -->
-      <div class="page-price__table">
+      <div id="trial-diving" class="page-price__table">
         <table class="price-list">
           <thead class="price-list__head u-mobile">
             <tr>
@@ -103,7 +103,7 @@
       <!-- end of 体験ダイビング -->
 
       <!-- ファンダイビング -->
-      <div class="page-price__table">
+      <div id="fundiving" class="page-price__table">
         <table class="price-list">
           <thead class="price-list__head u-mobile">
             <tr>
