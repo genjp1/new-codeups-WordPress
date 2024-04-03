@@ -158,7 +158,7 @@ $contact = esc_url( home_url( '/contact/' ) );
 
                         <!-- タクソノミー取得 -->
                         <?php $terms = get_the_terms( get_the_ID(), 'campaign_category' ); ?>
-                        <p class="campaign-card__tag campaign-card__tag--page-campaign">
+                        <p class="campaign-card__tag">
                           <?php if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
                               $term = array_shift( $terms ); // 配列から最初の項目を取り出す
                               echo $term->name;}?>
@@ -176,12 +176,22 @@ $contact = esc_url( home_url( '/contact/' ) );
 
                       <div class="campaign-card__text-blok">
                         <hr class="campaign-card__line">
-                        <p class="campaign-card__text">全部コミコミ(お一人様)</p>
+
+                        <?php if( !empty($campaignPrice['text']) ): ?>
+                          <p class="campaign-card__text"><?php echo esc_html($campaignPrice['text']); ?></p>
+                        <?php endif; ?>
+
                         <div class="campaign-card__price">
-                          <p class="campaign-card__price-before">¥56,000</p>
-                          <p class="campaign-card__price-discount">¥46,000</p>
+                          <?php if( !empty($campaignPrice['list-price']) ): ?>
+                            <p class="campaign-card__price-before">&yen;<?php echo number_format($campaignPrice['list-price']); ?></p>
+                          <?php endif; ?>
+
+                          <?php if( !empty($campaignPrice['discount-price']) ): ?>
+                            <p class="campaign-card__price-discount">&yen;<?php echo number_format($campaignPrice['discount-price']); ?></p>
+                          <?php endif; ?>
+
                         </div>
-                      </div>
+                      </div>  
                       
                     </div>
                   </div>
