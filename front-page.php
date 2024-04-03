@@ -48,30 +48,25 @@ $contact = esc_url( home_url( '/contact/' ) );
       </div>
       <div class="mv__swiper swiper js-mv-swiper">
         <div class="swiper-wrapper">
+
+          <?php
+          $mvPC = get_field('mvPC', 244); // PCの画像配列
+          $mvSP = get_field('mvSP', 244); // SPの画像491配列
+          $i = 1;
+          foreach($mvPC as $image):
+            if ($mvPC['mvPC'.$i] && $mvSP['mvSP'.$i]) :
+          ?>
+
           <div class="swiper-slide">
             <div class="mv__swiper-img">
               <picture>
-                <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/mv1.jpg" class="mv">
-                <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/mv1-sp.jpg" class="mv" alt="水中のウミガメの様子">
+                <source media="(min-width: 768px)" srcset="<?php echo esc_url($mvPC['mvPC'.$i]); ?>" class="mv">
+                <img src="<?php echo esc_url($mvSP['mvSP'.$i]); ?>" class="mv" alt="水中のウミガメの様子">
               </picture>
             </div>
           </div>
-          <div class="swiper-slide">
-            <div class="mv__swiper-img">
-              <picture>
-                <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/mv2.jpg" class="mv">
-                <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/mv2-sp.jpg" class="mv" alt="水中にウミガメと2人のダイバーいる様子">
-              </picture>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="mv__swiper-img">
-              <picture>
-                <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/mv3.jpg" class="mv">
-                <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/mv3-sp.jpg" class="mv" alt="ボートと海の様子">
-              </picture>
-            </div>
-          </div>
+        
+          <?php $i += 1; endif; endforeach; ?>
         </div>
       </div>
     </div>
