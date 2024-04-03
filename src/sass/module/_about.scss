@@ -89,7 +89,9 @@
         color: $white;
         font-size: rem(80);
         line-height: 1.25; /* 125% */
-        width: 50%;
+
+        //WordPress化のため修正
+        width: 51%;
     }
 }
 

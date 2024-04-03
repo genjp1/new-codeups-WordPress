@@ -269,6 +269,18 @@ $contact = esc_url( home_url( '/contact/' ) );
     </div>
   </section>
 
+<!-- サブループ対象のセクション上部（セクションとセクションの間）に配置する -->
+<?php
+  $args = array( 
+    //カスタム投稿のスラッグ名を記述
+    'post_type' => 'post',
+    //表示する記事の件数を指定
+    'posts_per_page' => 3,
+  );
+  $the_query = new WP_Query($args); if($the_query->have_posts()):
+?>
+
+
   <!-- blog -->
   <section id="blog" class="blog blog-bg top-blog">
     <div class="blog__inner inner">
@@ -277,37 +289,36 @@ $contact = esc_url( home_url( '/contact/' ) );
         <h2 class="title__sub title__sub--white">ブログ</h2>
       </div>
       <div class="blog__cards blog-cards">
-        <a href="#" class="blog-cards__card card">
-          <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/blog1.jpg" alt="水中のイソギンチャクの様子" class="card__img">
+
+      <!-- ループ処理開始の場所に持っていく -->
+      <?php while ($the_query->have_posts()): $the_query->the_post(); ?>
+
+        <a href="<?php the_permalink(); ?>" class="blog-cards__card card">
+
+        <?php if (has_post_thumbnail()): ?>
+            <!-- 投稿にアイキャッチ画像が有る場合の処理 -->
+            <div class="card__img">
+              <?php the_post_thumbnail(); ?>
+            </div>
+        <?php else: ?>
+            <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/noimage.jpg" alt="" class="review-card__img-img">
+        <?php endif; ?>
+
           <div class="card__body">
-            <time class="card__date" datetime="2023-11-17">2023.11/17</time>
-            <h3 class="card__title">ライセンス取得</h3>
+            <time class="card__date" datetime="<?php the_time('c')?>"><?php the_time('Y.m.d')?></time>
+            <h3 class="card__title"><?php the_title();?></h3>
             <hr class="card__line">
-            <p class="card__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
-              ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
+            <p class="card__text"><?php the_excerpt();?></p>
           </div>
         </a>
-        <a href="#" class="blog-cards__card card">
-          <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/blog2.jpg" alt="水中でウミガメが泳いでいる様子" class="card__img">
-          <div class="card__body">
-            <time class="card__date" datetime="2023-11-17">2023.11/17</time>
-            <h3 class="card__title">ウミガメと泳ぐ</h3>
-            <hr class="card__line">
-            <p class="card__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
-              ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
+
+        <!-- ループ終了の場所に持っていく -->
+        <?php endwhile; wp_reset_postdata(); ?>
           </div>
-        </a>
-        <a href="#" class="blog-cards__card card">
-          <img src="<?php echo get_template_directory_uri() ?>/dist/assets/images/common/blog3.jpg" alt="水中のカクレクマノミがイソギンチャクの中にいる様子" class="card__img">
-          <div class="card__body">
-            <time class="card__date" datetime="2023-11-17">2023.11/17</time>
-            <h3 class="card__title">カクレクマノミ</h3>
-            <hr class="card__line">
-            <p class="card__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
-              ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
-          </div>
-        </a>
-      </div>
+        <?php else : ?>
+            <p>記事が投稿されていません</p>
+        <?php endif; ?>
+
       <div class="blog__btn">
         <a href="<?php echo $blog; ?>" class="btn"><span>View more</span></a>
       </div>
