@@ -20,7 +20,13 @@ $faq = esc_url( home_url( '/faq/' ) );
 $privacypolicy = esc_url( home_url( '/privacypolicy/' ) );
 $terms = esc_url( home_url( '/terms/' ) );
 $contact = esc_url( home_url( '/contact/' ) );
-?>
+$c_licence = esc_url( home_url( '/campaign_category/licence/' ) );
+$c_fundiving = esc_url( home_url( '/campaign_category/fundiving/' ) );
+$c_trial_diving = esc_url( home_url( '/campaign_category/trial-diving/' ) );
+$p_licence = esc_url( home_url( '/price#licence' ) );
+$p_fundiving = esc_url( home_url( '/price#fundiving' ) );
+$p_trial_diving = esc_url( home_url( '/price#trial-diving' ) );
+?> 
 
 
 <body <?php body_class(); ?>>
@@ -61,9 +67,9 @@ $contact = esc_url( home_url( '/contact/' ) );
             <ul class="sp-nav__items-column">
               <li class="sp-nav__item"><span><a href="<?php echo $campaign; ?>">キャンペーン</a></span>
                 <ul>
-                  <li class="sp-nav__item-child"><a href="#">ライセンス取得</a></li>
-                  <li class="sp-nav__item-child"><a href="#">貸切体験ダイビング</a></li>
-                  <li class="sp-nav__item-child"><a href="#">ナイトダイビング</a></li>
+                  <li class="sp-nav__item-child"><a href="<?php echo $c_licence; ?>">ライセンス取得</a></li>
+                  <li class="sp-nav__item-child"><a href="<?php echo $c_fundiving; ?>">貸切体験ダイビング</a></li>
+                  <li class="sp-nav__item-child"><a href="<?php echo $c_trial_diving; ?>">ナイトダイビング</a></li>
                 </ul>
               </li>
               <li class="sp-nav__item"><span><a href="<?php echo $about; ?>">私たちについて</a></span>
@@ -83,9 +89,9 @@ $contact = esc_url( home_url( '/contact/' ) );
               </li>
               <li class="sp-nav__item"><span><a href="<?php echo $price; ?>">料金一覧</a></span>
                 <ul>
-                  <li class="sp-nav__item-child"><a href="">ライセンス講習</a></li>
-                  <li class="sp-nav__item-child"><a href="">体験ダイビング</a></li>
-                  <li class="sp-nav__item-child"><a href="">ファンダイビング</a></li>
+                  <li class="sp-nav__item-child"><a href="<?php echo $p_licence; ?>">ライセンス講習</a></li>
+                  <li class="sp-nav__item-child"><a href="<?php echo $p_trial_diving;?>">体験ダイビング</a></li>
+                  <li class="sp-nav__item-child"><a href="<?php echo $p_fundiving; ?>">ファンダイビング</a></li>
                 </ul>
               </li>
               <li class="sp-nav__item"><span><a href="<?php echo $faq; ?>">よくある質問</a></span>

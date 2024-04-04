@@ -348,7 +348,8 @@ window.addEventListener("DOMContentLoaded", function () {
 
 /*====================================================
 # フッターのリンクをクリックしたらページ遷移（タブ選択）（フッター側設定）
-=====================================================*/
+// =====================================================*/
+
 document.addEventListener('DOMContentLoaded', function () {
   // 共通クラス名を持つリンクをすべて取得
   var links = document.querySelectorAll('.tab-link');
@@ -362,8 +363,8 @@ document.addEventListener('DOMContentLoaded', function () {
       var text = e.target.textContent.trim();
       if (tabMap[text]) {
         e.preventDefault(); // デフォルトのリンク動作をキャンセル
-        // 対応するtabパラメータを使用してpage-information.htmlに遷移
-        window.location.href = 'information/?tab=' + tabMap[text];
+        // 対応するtabパラメータを使用して絶対パスでinformationページに遷移
+        window.location.href = window.location.origin + '/information/?tab=' + tabMap[text];
       }
     });
   });
