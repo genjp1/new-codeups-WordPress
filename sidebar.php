@@ -23,15 +23,13 @@ $contact = esc_url( home_url( '/contact/' ) );
             <h2 class="sidebar__title">人気記事</h2>
 
             <?php
+            setPostViews( get_the_ID() ); //記事のアクセス数を取得する関数
             $args = array(
                 'post_type' => 'post',// 投稿タイプ（postは通常の投稿）
-                'posts_per_page' => 3,// 取得する記事の件数
-                'meta_key'         => 'post_views_count',//投稿数をカウントするカスタムフィールド名
-                'orderby'          => 'meta_value_num',
-                'order'            => 'DESC',
-                'post_status'      => 'publish',
-                'caller_get_posts' => 1,
-                'offset'           => 0,
+                'posts_per_page' => 3, //表示数
+                'meta_key' => 'post_views_count', //カスタムフィールド名
+                'orderby' => 'meta_value_num', //カスタムフィールドの値
+                'order' => 'DESC' //降順で表示する
             );
             $the_query = new WP_Query($args);
             ?>
@@ -56,6 +54,8 @@ $contact = esc_url( home_url( '/contact/' ) );
                         <p class="popular-card__title"><?php the_title();?></p>
                       </div>
                     </div>
+                    <!-- 記事のアクセス数を表示する関数 -->
+                    <?php echo getPostViews( get_the_ID() ); ?>
                   </a>
                   <?php endwhile; ?>
                 <?php wp_reset_postdata(); ?>
@@ -295,7 +295,9 @@ $contact = esc_url( home_url( '/contact/' ) );
                     </details>
                   </div>
                 </details>
-
+                <ul>
+	<?php wp_get_archives(); ?>
+</ul>
               </div>
 
             </div>
