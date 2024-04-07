@@ -86,9 +86,7 @@ $p_trial_diving = esc_url( home_url( '/price#trial-diving' ) );
       <!-- footerメニュー -->
       <div class="footer__nav footer-nav">
         <div class="footer-nav__contents">
-
           <div class="footer-nav__content">
-
             <ul class="footer-nav__items-column">
               <li class="footer-nav__item"><span><a href="<?php echo $campaign; ?>">キャンペーン</a></span>
                 <ul>

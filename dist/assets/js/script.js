@@ -326,9 +326,13 @@ var openingAnimation = function openingAnimation() {
     duration: 1,
     ease: "power4.in",
     color: "#fff"
-  }, "-=.5")
-  // .fromTo(".js-loading", { autoAlpha: 1 }, { autoAlpha: 0, duration: 1, ease: "power4.in" }, "+=2")
-  .add(function () {
+  }, "-=.5").fromTo(".js-loading", {
+    autoAlpha: 1
+  }, {
+    autoAlpha: 0,
+    duration: 1,
+    ease: "power4.in"
+  }, "+=2").add(function () {
     return header.style.display = "";
   }); // ローディング終了後にヘッダーを再表示
 };
@@ -340,9 +344,9 @@ window.addEventListener("DOMContentLoaded", function () {
     openingAnimation();
   } else {
     // 2回目以降の訪問時の処理
-    // document.querySelector(".js-loading").style.display = "none";
-    sessionStorage.setItem(keyName, keyValue);
-    openingAnimation();
+    document.querySelector(".js-loading").style.display = "none";
+    // sessionStorage.setItem(keyName, keyValue);
+    // openingAnimation();
   }
 });
 

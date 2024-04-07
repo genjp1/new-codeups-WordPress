@@ -311,7 +311,7 @@ const openingAnimation = () => {
         .fromTo(".js-loading-img", { y: "100%" }, { y: "0%", duration: 2, ease: "power4.out", stagger: 0.1 }, "-=0.5")
         .to(".js-loading-title", { autoAlpha: 0, duration: 0.8 }, "<")
         .fromTo(".js-loading-title", { autoAlpha: 0, scale: 0.9 }, { autoAlpha: 1, scale: 1, duration: 1, ease: "power4.in", color: "#fff" }, "-=.5")
-        // .fromTo(".js-loading", { autoAlpha: 1 }, { autoAlpha: 0, duration: 1, ease: "power4.in" }, "+=2")
+        .fromTo(".js-loading", { autoAlpha: 1 }, { autoAlpha: 0, duration: 1, ease: "power4.in" }, "+=2")
         .add(() => header.style.display = ""); // ローディング終了後にヘッダーを再表示
 };
 
@@ -322,9 +322,9 @@ window.addEventListener("DOMContentLoaded", () => {
         openingAnimation();
     } else {
         // 2回目以降の訪問時の処理
-        // document.querySelector(".js-loading").style.display = "none";
-        sessionStorage.setItem(keyName, keyValue);
-        openingAnimation();
+        document.querySelector(".js-loading").style.display = "none";
+        // sessionStorage.setItem(keyName, keyValue);
+        // openingAnimation();
     }
 });
 
